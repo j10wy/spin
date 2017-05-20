@@ -1,0 +1,76 @@
+$stable: #BEC0C2;
+$positive: #56A0D3;
+$calm: #003C6F;
+$energized: #F8971D;
+$assertive: #EE3524;
+$royal: #000000;
+$dark: #414042;
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+@import "../www/lib/ionic/scss/ionic.scss";
+//Home Page
+#clockdiv {
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+	> div {
+		padding: 3px;
+		border-radius: 1px;
+		border-color: white;
+		border-width: 1px;
+		// background: none;
+		background-color: rgba(255,255,255,.2);
+		border-radius: 6px;
+		display: inline-block;
+	}
+	
+	div > span {
+		padding: 10px;
+		border-radius: 5px;
+		// background: rgba(0, 60, 111, 1);
+		display: inline-block;
+	}
+	
+	div > div.smalltext {
+		padding-top: 5px;
+		font-size: 16px;
+	}
+	
+}
+.bottom-button {
+	position: absolute;
+	margin: 0 0px;
+	bottom: 10px;
+	width: 95%;
+}
+
+.bottom-button.login {
+	width: 100%;
+}
+
+.login {
+	padding: 0 5px;
+}
+
+.checkin {
+	color: #fff;
+	font-size: 18px;
+}
+
+.checkin-fundraising {
+	background-color: #33CD5F;
+}
+
+.checkin-medical {
+	background-color: #EE3524}
+.checkin-teamraiser {
+	background-color: #003C6F;
+}
+
+div#alc-error {
+	background-color:red; 
+	color:#FFF;
+	padding:5px;
+}
