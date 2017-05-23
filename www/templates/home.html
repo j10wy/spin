@@ -32,8 +32,11 @@
         </div>
       </div>
     </div>
-    <div id="home-container3" class="bottom-button login">
+    <div ng-if="!$root.luminate.loggedIn" id="home-container3" class="bottom-button login">
       <a ui-sref="menu.login()" id="home-button11" class="button button-assertive button-block button-outline icon-right ion-log-in">Login</a>
+    </div>
+    <div ng-if="$root.luminate.loggedIn"  id="home-container3" class="bottom-button login">
+      <a menu-toggle="left" id="home-button11" class="button button-energized button-block button-outline icon-right ion-log-in">Menu</a>
     </div>
   </ion-content>
 </ion-view>

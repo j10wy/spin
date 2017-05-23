@@ -14,7 +14,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
   })
 
-  .run(function ($ionicPlatform, $rootScope, $http, $log, loginService) {
+  .run(function ($ionicPlatform, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, constituentGroupsService, participantProgress, tentMateService) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)

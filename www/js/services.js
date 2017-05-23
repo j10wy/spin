@@ -48,6 +48,11 @@ angular.module('app.services', [])
 
             switch (cons_customId) {
 
+              case "custom_boolean3":
+                // Bike Parking boolean
+                $rootScope.luminate.bikeParking = (cons_customContent === "true") ? true : false;
+                break;
+
               case "custom_boolean13":
                 // Bike Parking boolean
                 $rootScope.luminate.bikeParking = (cons_customContent === "true") ? true : false;
@@ -250,7 +255,8 @@ angular.module('app.services', [])
                 $rootScope.luminate.groups.pom = "4:00 PM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
             }
-            //The group ID for the ALC Medform Complete group. Needs to be updated each year.
+            // The group ID for the ALC Medform Complete group.
+            // Clear the group of all memebers. Update the checkbox. Run query with same name.
             if (convioGroupId === "140719") {
               $rootScope.luminate.groups.med_form = true;
             }

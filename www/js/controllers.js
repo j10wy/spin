@@ -1,182 +1,269 @@
 angular.module('app.controllers', [])
-  
-.controller('homeCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
 
-        function getTimeRemaining(endtime) {
-            var t = Date.parse(endtime) - Date.parse(new Date());
-            var seconds = Math.floor((t / 1000) % 60);
-            var minutes = Math.floor((t / 1000 / 60) % 60);
-            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-            var days = Math.floor(t / (1000 * 60 * 60 * 24));
-            return {
-                'total': t,
-                'days': days,
-                'hours': hours,
-                'minutes': minutes,
-                'seconds': seconds
-            };
+  .controller('homeCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
+    // You can include any angular dependencies as parameters for this function
+    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+    function ($scope, $stateParams) {
+
+      function getTimeRemaining(endtime) {
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+          'total': t,
+          'days': days,
+          'hours': hours,
+          'minutes': minutes,
+          'seconds': seconds
+        };
+      }
+
+      function initializeClock(id, endtime) {
+        var clock = document.getElementById(id);
+        var daysSpan = clock.querySelector('.days');
+        var hoursSpan = clock.querySelector('.hours');
+        var minutesSpan = clock.querySelector('.minutes');
+        var secondsSpan = clock.querySelector('.seconds');
+
+        var today = new Date();
+        var pastDeadline = today > deadline ? "past the deadline" : "good to go!";
+        console.log("Deadline: You are ", pastDeadline)
+
+
+        function updateClock() {
+          var t = getTimeRemaining(endtime);
+
+          daysSpan.innerHTML = t.days;
+          hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+          minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+          secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+          }
         }
 
-        function initializeClock(id, endtime) {
-            var clock = document.getElementById(id);
-            var daysSpan = clock.querySelector('.days');
-            var hoursSpan = clock.querySelector('.hours');
-            var minutesSpan = clock.querySelector('.minutes');
-            var secondsSpan = clock.querySelector('.seconds');
-            
-            var today = new Date();
-            var pastDeadline = today > deadline ? "past the deadline" : "good to go!";
-            console.log("Deadline: You are ", pastDeadline)
-            
+        updateClock();
+        var timeinterval = setInterval(updateClock, 1000);
+      }
 
-            function updateClock() {
-                var t = getTimeRemaining(endtime);
+      var deadline = new Date('June 4, 2017 07:00:00');
+      initializeClock('clockdiv', deadline);
 
-                daysSpan.innerHTML = t.days;
-                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    }
+  ])
 
-                if (t.total <= 0) {
-                    clearInterval(timeinterval);
-                }
-            }
+  .controller('menuCtrl', function ($scope, $rootScope, $state, $stateParams, $http, $ionicSideMenuDelegate) {
 
-            updateClock();
-            var timeinterval = setInterval(updateClock, 1000);
-        }
+    $scope.logout = function () {
 
-        var deadline = new Date('June 4, 2017 07:00:00');
-        initializeClock('clockdiv', deadline);
+      $http({
+        method: 'POST',
+        url: $rootScope.luminate.uri + "CRConsAPI",
+        data: "method=logout" + $rootScope.luminate.postdata,
+        headers: $rootScope.luminate.header
+      }).then(function () {
 
-}])
-   
-.controller('menuCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+        $rootScope.luminate.loggedIn = false;
+        $rootScope.luminate.cons_id = "";
+        $rootScope.luminate.token = "";
+        $rootScope.luminate.tr_info = {};
+        $rootScope.luminate.bikeParking = false;
+        $rootScope.luminate.groups = {
+          pom: "NO RSVP",
+          med_form: false,
+          incentive_pickup: false
+        };
+
+        $ionicSideMenuDelegate.toggleLeft();
+        $state.go('menu.home');
 
 
-}])
-   
-.controller('loginCtrl', function ($scope, $timeout, $stateParams, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, tentMateService, participantProgress, constituentGroupsService) {
+      }, function () {
+        console.log("Log out failed.");
+      });
 
-// Form data for the login modal
+    }
+
+  })
+
+  .controller('loginCtrl', function ($scope, $ionicPopup, $state, $stateParams, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, tentMateService, participantProgress, constituentGroupsService) {
+
+    // Form data for the login modal
     $scope.loginData = {};
     $scope.loginData.username = window.localStorage.username || "";
     $scope.loginData.password = window.localStorage.password || "";
     $scope.savePassword = true;
 
-        // Perform the login action when the user submits the login form
-    $scope.login = function() {
+    // Perform the login action when the user submits the login form
+    $scope.login = function () {
 
-        //LOGIN REQUEST
-        $http({
-                method: 'POST',
-                url: $rootScope.luminate.uri + "CRConsAPI",
-                data: "method=login" + $rootScope.luminate.postdata + "&user_name=" + $scope.loginData.username + "&password=" + $scope.loginData.password,
-                headers: $rootScope.luminate.header
-            })
-            .success(function(loginResponseData) {
-                //Store the login Success response in the response variable
-                var response = loginResponseData.loginResponse;
+      //LOGIN REQUEST
+      $http({
+          method: 'POST',
+          url: $rootScope.luminate.uri + "CRConsAPI",
+          data: "method=login" + $rootScope.luminate.postdata + "&user_name=" + $scope.loginData.username + "&password=" + $scope.loginData.password,
+          headers: $rootScope.luminate.header
+        })
+        .success(function (loginResponseData) {
+          //Store the login Success response in the response variable
+          var response = loginResponseData.loginResponse;
 
-                //Store the participant's un/pw entry in the $rootScope and localStorage
-                $rootScope.luminate.username = $scope.loginData.username;
-                $rootScope.luminate.password = $scope.loginData.password;
-                window.localStorage.username = $scope.loginData.username;
-                window.localStorage.password = $scope.loginData.password;
+          //Store the participant's un/pw entry in the $rootScope and localStorage
+          $rootScope.luminate.username = $scope.loginData.username;
+          $rootScope.luminate.password = $scope.loginData.password;
+          window.localStorage.username = $scope.loginData.username;
+          window.localStorage.password = $scope.loginData.password;
 
-                //Store the participant's constituent ID and login token as their own objects
-                $rootScope.luminate.cons_id = response.cons_id;
-                $rootScope.luminate.token = response.token;
+          //Store the participant's constituent ID and login token as their own objects
+          $rootScope.luminate.cons_id = response.cons_id;
+          $rootScope.luminate.token = response.token;
 
-                $rootScope.luminate.loggedIn = true;
-            })
-            .error(function(errorResponse) {
-                console.log("Log in error:", errorResponse);
-                $rootScope.luminate.loggedIn = false;
+          $rootScope.luminate.loggedIn = true;
+        })
+        .error(function (errorResponse) {
+          console.log("Log in error:", errorResponse);
+          $rootScope.luminate.loggedIn = false;
 
-                $timeout(function() {
-                    $scope.closeLogin();
-                }, 2000);
-            })
-            .then(function() {
+          $ionicPopup.alert({
+            title: 'Alert!',
+            template: 'Username or password is incorrect.'
+          });
 
-                //Get Constituent Profile
-                constituentService.getConsRecord();
 
-            }).then(function() {
+        })
+        .then(function () {
 
-                //Get TeamRaiser Registration
-                teamRaiserService.getTeamRaiserRegistration();
+          //Get Constituent Profile
+          constituentService.getConsRecord();
 
-            }).then(function() {
+        }).then(function () {
 
-                //Get Participant Tent Mate Information
-                tentMateService.getTentMate();
+          //Get TeamRaiser Registration
+          teamRaiserService.getTeamRaiserRegistration();
 
-            }).then(function() {
+        }).then(function () {
 
-                //Participant Progress
-                participantProgress.getProgress();
+          //Get Participant Tent Mate Information
+          tentMateService.getTentMate();
 
-            }).then(function() {
+        }).then(function () {
 
-                //Constituent Groups
-                constituentGroupsService.getGroups();
+          //Participant Progress
+          participantProgress.getProgress();
 
-            }).then(function() {
-                $timeout(function() {
-                    $scope.closeLogin();
-                }, 500);
-                console.log("RootScope Luminate Object:", $rootScope.luminate)
-            });
+        }).then(function () {
+
+          //Constituent Groups
+          constituentGroupsService.getGroups();
+
+        }).then(function () {
+          setTimeout(function () {
+            $state.go('menu.home');
+          }, 500);
+          console.log("RootScope Luminate Object:", $rootScope.luminate);
+
+          // Log login interaction to CONS profile
+          $http({
+            method: 'POST',
+            url: $rootScope.luminate.uri + "CRConsAPI",
+            data: "method=logInteraction" + $rootScope.luminate.postdata + "&interaction_subject=My ALC Spin login&cons_id=" + $rootScope.luminate.cons_id + "&interaction_body=Logged in with My ALC Spin app&interaction_type_id=1010&sso_auth_token="+$rootScope.luminate.token,
+            headers: $rootScope.luminate.header
+          }).success(function (loginResponseData) {
+            console.log("Logged interaction 1010");
+          }).error(function(response){
+            console.log("Interaction error:", response);
+          });
+        });
+
 
     };
 
-})
-   
-.controller('checkInCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+  })
+
+  .controller('checkInCtrl', function ($scope, $stateParams) {
 
 
-}])
-   
-.controller('orientationDayCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+  })
+
+  .controller('orientationDayCtrl', function ($scope, $stateParams, $rootScope) {
+
+    JsBarcode("#alc-num-barcode", $rootScope.luminate.tr_info.raceNumber, {
+      width: 3
+    });
+
+  })
+
+  .controller('incentivesCtrl', function ($scope, $rootScope, $stateParams, $http) {
+
+    var sheetsu = "https://sheetsu.com/apis/v1.0/74228483b9e4/search?CONS_ID=" + $rootScope.luminate.cons_id;
+
+    $scope.displayIncentives = false;
+
+    $scope.getIncentives = function () {
+
+      $http({
+        method: 'GET',
+        url: sheetsu
+      }).then(function successCallback(incentivesResponse) {
+
+        $scope.incentivesInfo = incentivesResponse.data[0]
+        console.log("Sheetsu Success:", $scope.incentivesInfo);
+        $scope.displayIncentives = true;
+
+      }, function errorCallback(response) {
+        console.log("Sheetsu Failure:", response);
+      });
+
+    };
+
+    $scope.getIncentives();
+
+    $scope.incentiveRefresh = function () {
+      $scope.getIncentives();
+      $scope.$broadcast('scroll.refreshComplete');
+    }
+
+  })
+
+  .controller('roadiesCtrl', function ($scope, $stateParams) {
 
 
-}])
-   
-.controller('incentivesCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+  })
 
+  .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http) {
 
-}])
-   
-.controller('roadiesCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+    var sheetsu = "https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=" + $rootScope.luminate.tr_info.raceNumber;
 
+    $scope.getBikeInfo = function () {
 
-}])
-   
-.controller('bikeLocationCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-// You can include any angular dependencies as parameters for this function
-// TIP: Access Route Parameters for your page via $stateParams.parameterName
-function ($scope, $stateParams) {
+      $http({
+        method: 'GET',
+        url: sheetsu
+      }).then(function successCallback(bikeInfoResponse) {
 
+        // Bike Location data
+        var bikeInfo = bikeInfoResponse.data[0];
+        console.log("Bike info:", bikeInfo);
 
-}])
- 
+        // Update Scope
+        $scope.bike_rack = bikeInfo.bike_rack;
+        console.log("rack", $scope.bike_rack)
+        $scope.bike_scan_date = bikeInfo.date;
+        $scope.bike_scan_time = bikeInfo.time;
+
+      }, function errorCallback(response) {
+        console.log("Sheetsu Failure:", response);
+      });
+
+    }
+
+    $scope.getBikeInfo();
+    $scope.bikeInfoRefresh = function () {
+      $scope.getBikeInfo();
+      $scope.$broadcast('scroll.refreshComplete');
+    };
+
+  })

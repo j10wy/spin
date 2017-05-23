@@ -1,16 +1,22 @@
 <ion-view title="Bike Location" hide-back-button="true" id="page12">
-  <ion-content padding="true" class="has-header">
-    <h2 id="bikeLocation-heading10" style="color:#414042;text-align:center;">Bike Location</h2>
+  <ion-content padding="true" class="has-header alc-checkin alc-bg">
+    <ion-refresher pulling-text="Pull to refresh..." on-refresh="bikeInfoRefresh()"></ion-refresher>
+    <div class="spacer" style="height: 28px;"></div>
     <ion-list id="bikeLocation-list20">
-      <ion-item class="item-divider checkin checkin-teamraiser" id="bikeLocation-list-item-divider8"> Your bike is parked at a rack</ion-item>
+      <ion-item class="item-divider checkin checkin-teamraiser" id="bikeLocation-list-item-divider8" style="border-radius:4px 4px 0 0"> Your bike is parked at a rack</ion-item>
     </ion-list>
     <ion-list id="bikeLocation-list21">
-      <ion-item id="bikeLocation-list-item85">Bike Rack number</ion-item>
+      <ion-item class="dark" id="bikeLocation-list-item85" style="border-radius:0 0 4px 4px">
+         <h2 class="pom">{{bike_rack}}</h2>
+      </ion-item>
     </ion-list>
     <div class="spacer" style="height: 28px;"></div>
     <ion-list id="bikeLocation-list19">
-      <ion-item class="item-divider checkin checkin-teamraiser" id="bikeLocation-list-item-divider9"> Your was bike last scanned</ion-item>
-      <ion-item id="bikeLocation-list-item86">6/5/2017 at 2:00 PM</ion-item>
+      <ion-item class="item-divider checkin checkin-teamraiser" id="bikeLocation-list-item-divider9" style="border-radius:4px 4px 0 0"> Your was bike last scanned</ion-item>
+      <ion-item class="dark" id="bikeLocation-list-item86" style="border-radius:0 0 4px 4px">
+         <h2 class="pom">{{bike_scan_date}} at {{bike_scan_time}}</h2>
+
+      </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

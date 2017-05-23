@@ -7222,7 +7222,7 @@ ion-slides {
     bottom: 15px;
     left: 0;
     width: 100%;
-    color: #666666;
+    color: #FFF;
     text-align: center;
     font-size: 30px; }
     .scroll-refresher .ionic-refresher-content .text-refreshing,
@@ -9630,9 +9630,45 @@ a.button {
 .checkin-teamraiser {
   background-color: #003C6F; }
 
-div#alc-error {
+.ionic-refresher-content {
+  color: #FFF; }
+
+label.item.item-input input {
+  font-size: 1rem; }
+
+ion-content.alc-bg {
+  background: linear-gradient(to bottom, #003c6f 0%, #56a0d3 100%); }
+
+ion-content.alc-checkin .item.dark {
+  font-size: 1rem; }
+  ion-content.alc-checkin .item.dark > span.alc-title {
+    font-weight: bold; }
+
+ion-content.alc-incentives {
+  font-size: 1rem; }
+  ion-content.alc-incentives div.card > .item > i.earned {
+    color: green; }
+  ion-content.alc-incentives div.card > .item > i.notearned {
+    color: red; }
+
+ion-item.item > p.alc-error {
   background-color: red;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 26px;
   color: #FFF;
-  padding: 5px; }
+  padding: 10px;
+  margin-top: 10px;
+  white-space: normal; }
+
+ion-item.item > h2.pom {
+  font-size: 1.2rem; }
+
+div.alc-barcode-svg {
+  text-align: center; }
+  div.alc-barcode-svg span {
+    margin: 0 auto;
+    display: inline-block;
+    overflow: hidden; }
 
 /*# sourceMappingURL=ionic.app.css.map */

@@ -2,9 +2,7 @@ ALC 2017 Event App
 =====================
 
 ## Todo:
-- Login controller
-- Send to homepage after login
-- Password error
+
 
 ## Setup
 

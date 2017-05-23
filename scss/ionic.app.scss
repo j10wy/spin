@@ -9,68 +9,113 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "../www/lib/ionic/scss/ionic.scss";
 //Home Page
 #clockdiv {
-	font-family: sans-serif;
-	color: #fff;
-	display: inline-block;
-	font-weight: 100;
-	text-align: center;
-	font-size: 30px;
-	> div {
-		padding: 3px;
-		border-radius: 1px;
-		border-color: white;
-		border-width: 1px;
-		// background: none;
-		background-color: rgba(255,255,255,.2);
-		border-radius: 6px;
-		display: inline-block;
-	}
-	
-	div > span {
-		padding: 10px;
-		border-radius: 5px;
-		// background: rgba(0, 60, 111, 1);
-		display: inline-block;
-	}
-	
-	div > div.smalltext {
-		padding-top: 5px;
-		font-size: 16px;
-	}
-	
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 30px;
+  >div {
+    padding: 3px;
+    border-radius: 1px;
+    border-color: white;
+    border-width: 1px; // background: none;
+    background-color: rgba(255, 255, 255, .2);
+    border-radius: 6px;
+    display: inline-block;
+  }
+  div>span {
+    padding: 10px;
+    border-radius: 5px; // background: rgba(0, 60, 111, 1);
+    display: inline-block;
+  }
+  div>div.smalltext {
+    padding-top: 5px;
+    font-size: 16px;
+  }
 }
+
 .bottom-button {
-	position: absolute;
-	margin: 0 0px;
-	bottom: 10px;
-	width: 95%;
+  position: absolute;
+  margin: 0 0px;
+  bottom: 10px;
+  width: 95%;
 }
 
 .bottom-button.login {
-	width: 100%;
+  width: 100%;
 }
 
 .login {
-	padding: 0 5px;
+  padding: 0 5px;
 }
 
 .checkin {
-	color: #fff;
-	font-size: 18px;
+  color: #fff;
+  font-size: 18px;
 }
 
 .checkin-fundraising {
-	background-color: #33CD5F;
+  background-color: #33CD5F;
 }
 
 .checkin-medical {
-	background-color: #EE3524}
-.checkin-teamraiser {
-	background-color: #003C6F;
+  background-color: #EE3524
 }
 
-div#alc-error {
-	background-color:red; 
-	color:#FFF;
-	padding:5px;
+.checkin-teamraiser {
+  background-color: #003C6F;
+}
+
+.ionic-refresher-content {
+  color:#FFF;
+}
+
+label.item.item-input input {
+  font-size: 1rem;
+}
+
+ion-content.alc-bg {
+  background: linear-gradient(to bottom, rgba(0, 60, 111, 1) 00%, rgba(86, 160, 211, 1) 100%);
+}
+
+ion-content.alc-checkin .item.dark {
+  font-size: 1rem;
+  >span.alc-title {
+    font-weight: bold;
+  }
+}
+
+ion-content.alc-incentives{
+  font-size: 1rem;
+  div.card > .item >  i.earned {
+    color:green;
+  }
+  div.card > .item >  i.notearned {
+    color:red;
+  }
+}
+
+ion-item.item>p.alc-error {
+  background-color: red;
+  border-radius: 4px;
+  font-size: 1rem;
+  line-height: 26px;
+  color: #FFF;
+  padding: 10px;
+  margin-top: 10px;
+  white-space: normal;
+}
+
+ion-item.item>h2.pom {
+  font-size: 1.2rem;
+}
+
+div.alc-barcode-svg {
+  text-align: center;
+  span {
+    margin: 0 auto;
+    display: inline-block;
+    overflow: hidden;
+  }
 }
