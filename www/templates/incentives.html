@@ -4,7 +4,8 @@
     <div class="list card">
       <ion-item class="item-icon-left checkin checkin-fundraising" id="checkIn-list-item48">
         <i class="icon ion-cash"></i>Fundraising Information</ion-item>
-      <ion-item class="dark" id="checkIn-list-item46"><span class="alc-title">Amount Raised:</span> {{$root.luminate.tr_part_progress.raised/100 | currency}}</ion-item>
+      <ion-item class="dark" id="checkIn-list-item46">
+        <span class="alc-title">Amount Raised:</span> {{$root.luminate.tr_part_progress.raised/100 | currency}}</ion-item>
     </div>
     <div class="spacer" style="height: 0px;"></div>
     <div class="card" ng-if="displayIncentives">
@@ -32,10 +33,10 @@
         </div>
       </div>
 
-        <!-- Windvest: Report MUST include ONLY 'Not Started' tasks -->
-        <div ng-if="incentivesInfo.windvest == 'Not Started'" class="item item-text-wrap item-icon-left">
-          <i class="icon ion-bag"></i> AIDS/LifeCycle Windvest
-        </div>
+      <!-- Windvest: Report MUST include ONLY 'Not Started' tasks -->
+      <div ng-if="incentivesInfo.windvest == 'Not Started'" class="item item-text-wrap item-icon-left">
+        <i class="icon ion-bag"></i> AIDS/LifeCycle Windvest
+      </div>
 
       <!-- Top 50: Report MUST include ONLY 'Not Started' tasks -->
       <div ng-if="incentivesInfo.topfifty == 'Not Started'" class="item item-text-wrap item-icon-left">
