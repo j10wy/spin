@@ -128,36 +128,26 @@ angular.module('app.services', [])
         }).then(function (trResponse) {
 
           $rootScope.luminate.tr_info = trResponse.data.getRegistrationResponse.registration;
-          console.log("The type ID:", $rootScope.luminate.tr_info.participationTypeId);
+          
+          // Update the IDs in the switch statement below using the participation type IDs in the TeamRasier settings
+          // IDs are located in Luminate Online > TeamRaiser > [TeamRaiser Campaign] > 7. Manage Participation Types
 
           switch ($rootScope.luminate.tr_info.participationTypeId) {
-            case "2300":
+            case "2380":
               // Participation type is Cyclist
               $rootScope.luminate.tr_info.typeName = "Cyclist";
-              console.log("The paricipant's type is:", $rootScope.luminate.tr_info.typeName);
               break;
-            case "2304":
+            case "2384":
               // Participation type is Staff
               $rootScope.luminate.tr_info.typeName = "Staff";
-              console.log("The paricipant's type is:", $rootScope.luminate.tr_info.typeName);
               break;
-            case "2305":
+            case "2385":
               // Participation type is Staff
               $rootScope.luminate.tr_info.typeName = "Roadie";
-              console.log("The paricipant's type is:", $rootScope.luminate.tr_info.typeName);
               break;
           }
 
-          $rootScope.luminate.tr_info.participationTypeId;
-
-
-
-
-
           console.log("TeamRaiser Registration:", $rootScope.luminate.tr_info);
-          console.log("TeamRaiser Participation Type:", $rootScope.luminate.tr_info.participationTypeId);
-
-
 
         }, function (trResponseErorr) {
 
@@ -237,21 +227,24 @@ angular.module('app.services', [])
 
             var convioGroupId = value.id;
 
-            //Assign POM time to groups object.
+            // Assign POM time to groups object.
+            // Participants are added to an email group associated with each POM when they RSVP
+            // The IDs in the Switch statement below are the email group IDs
+
             switch (convioGroupId) {
-              case "142121":
+              case "143286":
                 $rootScope.luminate.groups.pom = "9:00 AM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
-              case "142122":
+              case "143287":
                 $rootScope.luminate.groups.pom = "11:00 AM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
-              case "142123":
+              case "143288":
                 $rootScope.luminate.groups.pom = "2:00 PM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
-              case "142124":
+              case "143289":
                 $rootScope.luminate.groups.pom = "4:00 PM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
             }
