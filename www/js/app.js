@@ -40,7 +40,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       password: "",
       token: "",
       cons_id: "",
-      fr_id: "1990",
+      fr_id: "2050",
       loggedIn: false,
       bikeParking: false,
       tr_info: {},

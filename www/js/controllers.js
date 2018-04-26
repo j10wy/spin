@@ -49,7 +49,7 @@ angular.module('app.controllers', [])
         var timeinterval = setInterval(updateClock, 1000);
       }
 
-      var deadline = new Date('June 4, 2017 07:00:00');
+      var deadline = new Date('June 3, 2018 07:00:00');
       initializeClock('clockdiv', deadline);
 
     }
