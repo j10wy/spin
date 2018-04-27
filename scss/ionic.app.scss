@@ -68,7 +68,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .ionic-refresher-content {
-  color:#FFF;
+  color: #FFF;
 }
 
 label.item.item-input input {
@@ -76,7 +76,8 @@ label.item.item-input input {
 }
 
 ion-content.alc-bg {
-  background: linear-gradient(to bottom, rgba(0, 60, 111, 1) 00%, rgba(86, 160, 211, 1) 100%);
+  background: url(../img/bg.svg) no-repeat center;
+  background-size: cover;
 }
 
 ion-content.alc-checkin .item.dark {
@@ -86,13 +87,13 @@ ion-content.alc-checkin .item.dark {
   }
 }
 
-ion-content.alc-incentives{
+ion-content.alc-incentives {
   font-size: 1rem;
-  div.card > .item >  i.earned {
-    color:green;
+  div.card>.item>i.earned {
+    color: green;
   }
-  div.card > .item >  i.notearned {
-    color:red;
+  div.card>.item>i.notearned {
+    color: red;
   }
 }
 
