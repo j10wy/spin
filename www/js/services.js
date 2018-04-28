@@ -1,36 +1,34 @@
 angular.module('app.services', [])
 
-  .service('loginService', function ($http, $rootScope) {
-
+  .service('loginService', function($http, $rootScope) {
     return {
       data: {},
-      getLogin: function (username, password) {
+      getLogin: function(username, password) {
         self = this;
         $http({
           method: 'POST',
           url: $rootScope.luminate.uri + "CRConsAPI",
           data: "method=login" + $rootScope.luminate.postdata + "&user_name=" + username + "&password=" + password,
           headers: $rootScope.luminate.header
-        }).success(function (data) {
+        }).success(function(data) {
           console.log(data.loginResponse);
           self.data = data.loginResponse;
           return self.data;
-        }).error(function (error) {
+        }).error(function(error) {
           console.log(error.errorResponse.message);
         });
       }
     }
-
   })
-  .service('constituentService', function ($http, $rootScope) {
+  .service('constituentService', function($http, $rootScope) {
     return {
-      getConsRecord: function () {
+      getConsRecord: function() {
         $http({
           method: 'POST',
           url: $rootScope.luminate.uri + "CRConsAPI",
           data: "method=getUser" + $rootScope.luminate.postdata + "&cons_id=" + $rootScope.luminate.cons_id + "&sso_auth_token=" + $rootScope.luminate.token,
           headers: $rootScope.luminate.header
-        }).then(function (consResponse) {
+        }).then(function(consResponse) {
 
           $rootScope.luminate.cons_info = consResponse.data.getConsResponse;
 
@@ -41,7 +39,7 @@ angular.module('app.services', [])
           console.log("Group array:", $rootScope.groupArray);
 
           //Angular forEach testing Custom Strings
-          angular.forEach($rootScope.groupArray, function (value, key) {
+          angular.forEach($rootScope.groupArray, function(value, key) {
 
             var cons_customId = value.id;
             var cons_customContent = value.content;
@@ -105,43 +103,67 @@ angular.module('app.services', [])
                 break;
             }
           });
-
           console.log("Constituent Information", $rootScope.luminate.cons_info);
           console.log("Bike Parking:", $rootScope.luminate.bikeParking);
-
-        }, function (consResponseErorr) {
-
+        }, function(consResponseErorr) {
           console.log("Error getting Constituent Information", consResponseErorr);
-
         });
       }
     }
   })
-  .service('teamRaiserService', function ($http, $rootScope) {
+  .service('incentivesService', function($rootScope, $stateParams, $http,) {
+
     return {
-      getTeamRaiserRegistration: function () {
+      getIncentives: function($http, $rootScope) {
+        /* 
+          @todo get the Incentives list from Firebase.
+        */
+
+        console.log("Hi from the incentivesService 👋");
+
+        // var sheetsu = "https://sheetsu.com/apis/v1.0/74228483b9e4/search?CONS_ID=" + $rootScope.luminate.cons_id;
+        // $rootScope.displayIncentives = false;
+
+
+      // $http({
+      //   method: 'GET',
+      //   url: sheetsu
+      // }).then(function successCallback(incentivesResponse) {
+      //   $rootScope.incentivesInfo = incentivesResponse.data[0]
+      //   console.log("Sheetsu Success:", $rootScope.incentivesInfo);
+      //   $rootScope.displayIncentives = true;
+      // }, function errorCallback(response) {
+      //   console.log("Sheetsu Failure:", response);
+      // });
+      }
+    }
+
+  })
+  .service('teamRaiserService', function($http, $rootScope) {
+    return {
+      getTeamRaiserRegistration: function() {
         $http({
           method: 'POST',
           url: $rootScope.luminate.uri + "CRTeamraiserAPI",
           data: "method=getRegistration" + $rootScope.luminate.postdata + "&sso_auth_token=" + $rootScope.luminate.token + "&fr_id=" + $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
-        }).then(function (trResponse) {
+        }).then(function(trResponse) {
 
           $rootScope.luminate.tr_info = trResponse.data.getRegistrationResponse.registration;
-          
+
           // Update the IDs in the switch statement below using the participation type IDs in the TeamRasier settings
           // IDs are located in Luminate Online > TeamRaiser > [TeamRaiser Campaign] > 7. Manage Participation Types
 
           switch ($rootScope.luminate.tr_info.participationTypeId) {
-            case "2380":
+            case $rootScope.luminate.type_id.cyclist:
               // Participation type is Cyclist
               $rootScope.luminate.tr_info.typeName = "Cyclist";
               break;
-            case "2384":
+            case $rootScope.luminate.type_id.staff:
               // Participation type is Staff
               $rootScope.luminate.tr_info.typeName = "Staff";
               break;
-            case "2385":
+            case $rootScope.luminate.type_id.roadie:
               // Participation type is Staff
               $rootScope.luminate.tr_info.typeName = "Roadie";
               break;
@@ -149,7 +171,7 @@ angular.module('app.services', [])
 
           console.log("TeamRaiser Registration:", $rootScope.luminate.tr_info);
 
-        }, function (trResponseErorr) {
+        }, function(trResponseErorr) {
 
           console.log("Error getting TeamRaiser Registration:", trResponseErorr);
 
@@ -157,16 +179,16 @@ angular.module('app.services', [])
       }
     }
   })
-  .service('tentMateService', function ($http, $rootScope) {
+  .service('tentMateService', function($http, $rootScope) {
 
     return {
-      getTentMate: function () {
+      getTentMate: function() {
         $http({
           method: 'POST',
           url: $rootScope.luminate.uri + "CRTeamraiserAPI",
           data: "method=getTentmate" + $rootScope.luminate.postdata + "&sso_auth_token=" + $rootScope.luminate.token + "&fr_id=" + $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
-        }).then(function (tentMateResponse) {
+        }).then(function(tentMateResponse) {
 
           // 0 = Initial status 
           // 1 = Eligible for pairing
@@ -182,7 +204,7 @@ angular.module('app.services', [])
           $rootScope.luminate.tentMate = tentMateResponse.data.getTentmateResponse.record;
           console.log("Tent-mate information:", $rootScope.luminate.tentMate);
 
-        }, function (tentMateResponseErorr) {
+        }, function(tentMateResponseErorr) {
 
           console.log("Error getting TeamRaiser Registration:", tentMateResponseErorr);
 
@@ -190,20 +212,20 @@ angular.module('app.services', [])
       }
     }
   })
-  .service("participantProgress", function ($http, $rootScope) {
+  .service("participantProgress", function($http, $rootScope) {
     return {
-      getProgress: function () {
+      getProgress: function() {
         $http({
           method: 'POST',
           url: $rootScope.luminate.uri + "CRTeamraiserAPI",
           data: "method=getParticipantProgress" + $rootScope.luminate.postdata + "&cons_id=" + $rootScope.luminate.cons_id + "&fr_id=" + $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
-        }).then(function (partProgressResponse) {
+        }).then(function(partProgressResponse) {
 
           $rootScope.luminate.tr_part_progress = partProgressResponse.data.getParticipantProgressResponse.personalProgress;
           console.log("Here is the trPartReponse", $rootScope.luminate.tr_part_progress);
 
-        }, function (partProgressErorr) {
+        }, function(partProgressErorr) {
 
           console.log("Error getting trPartReponse: ", partProgressErorr);
 
@@ -211,59 +233,52 @@ angular.module('app.services', [])
       }
     }
   })
-  .service("constituentGroupsService", function ($http, $rootScope) {
+  .service("constituentGroupsService", function($http, $rootScope) {
     return {
-      getGroups: function () {
+      getGroups: function() {
         $http({
           method: 'POST',
           url: $rootScope.luminate.uri + "CRConsAPI",
           data: "method=getUserGroups" + $rootScope.luminate.postdata + "&sso_auth_token=" + $rootScope.luminate.token + "&cons_id=" + $rootScope.luminate.cons_id,
           headers: $rootScope.luminate.header
-        }).then(function (grpResponse) {
+        }).then(function(grpResponse) {
 
           $rootScope.luminate.grp_info = grpResponse.data.getConsGroupsResponse.group;
 
-          angular.forEach($rootScope.luminate.grp_info, function (value, key) {
+          angular.forEach($rootScope.luminate.grp_info, function(value, key) {
 
             var convioGroupId = value.id;
 
-            // Assign POM time to groups object.
-            // Participants are added to an email group associated with each POM when they RSVP
-            // The IDs in the Switch statement below are the email group IDs
-
             switch (convioGroupId) {
-              case "143286":
+              // Assign POM time to groups object.
+              // Participants are added to an email group associated with each POM when they RSVP
+              // The IDs in the Switch statement below are the email group IDs
+              case $rootScope.luminate.group_id.pom_one:
                 $rootScope.luminate.groups.pom = "9:00 AM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
-              case "143287":
+              case $rootScope.luminate.group_id.pom_two:
                 $rootScope.luminate.groups.pom = "11:00 AM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
-              case "143288":
+              case $rootScope.luminate.group_id.pom_three:
                 $rootScope.luminate.groups.pom = "2:00 PM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
-              case "143289":
+              case $rootScope.luminate.group_id.pom_four:
                 $rootScope.luminate.groups.pom = "4:00 PM";
                 console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
-            }
-            // The group ID for the ALC Medform Complete group.
-            // Clear the group of all memebers. Update the checkbox. Run query with same name.
-            if (convioGroupId === "140719") {
-              $rootScope.luminate.groups.med_form = true;
-            }
-
-            //The group ID for participants with open incentives. Needs to be updated going into Orientation Day
-            if (convioGroupId === "140762") {
-              $rootScope.luminate.groups.incentive_pickup = true;
+              case $rootScope.luminate.group_id.medical:
+                // The group ID for the ALC Medform Complete group.
+                // Clear the group of all memebers. Update the checkbox. Run query with same name.
+                $rootScope.luminate.groups.med_form = true;
             }
           });
 
           //console.log($rootScope.luminate.grp_info);
           console.log("Orientation Groups:", $rootScope.luminate.groups);
 
-        }, function (grpResponseErorr) {
+        }, function(grpResponseErorr) {
           console.log("Error getting grpResponse: ", grpResponseErorr);
         });
       }
