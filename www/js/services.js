@@ -11,7 +11,6 @@ angular.module('app.services', [])
           data: "method=login" + $rootScope.luminate.postdata + "&user_name=" + username + "&password=" + password,
           headers: $rootScope.luminate.header
         }).success(function(data) {
-          console.log(data.loginResponse);
           self.data = data.loginResponse;
           return self.data;
         }).error(function(error) {
@@ -36,7 +35,6 @@ angular.module('app.services', [])
           var customStrings = $rootScope.luminate.cons_info.custom.string;
 
           $rootScope.groupArray = [].concat(customBooleans, customStrings);
-          console.log("Group array:", $rootScope.groupArray);
 
           //Angular forEach testing Custom Strings
           angular.forEach($rootScope.groupArray, function(value, key) {
@@ -169,8 +167,6 @@ angular.module('app.services', [])
               break;
           }
 
-          console.log("TeamRaiser Registration:", $rootScope.luminate.tr_info);
-
         }, function(trResponseErorr) {
 
           console.log("Error getting TeamRaiser Registration:", trResponseErorr);
@@ -202,7 +198,6 @@ angular.module('app.services', [])
           // 9 = Accepted and confirmed 
 
           $rootScope.luminate.tentMate = tentMateResponse.data.getTentmateResponse.record;
-          console.log("Tent-mate information:", $rootScope.luminate.tentMate);
 
         }, function(tentMateResponseErorr) {
 
@@ -223,7 +218,6 @@ angular.module('app.services', [])
         }).then(function(partProgressResponse) {
 
           $rootScope.luminate.tr_part_progress = partProgressResponse.data.getParticipantProgressResponse.personalProgress;
-          console.log("Here is the trPartReponse", $rootScope.luminate.tr_part_progress);
 
         }, function(partProgressErorr) {
 
@@ -255,28 +249,21 @@ angular.module('app.services', [])
               // The IDs in the Switch statement below are the email group IDs
               case $rootScope.luminate.group_id.pom_one:
                 $rootScope.luminate.groups.pom = "9:00 AM";
-                console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
               case $rootScope.luminate.group_id.pom_two:
                 $rootScope.luminate.groups.pom = "11:00 AM";
-                console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
               case $rootScope.luminate.group_id.pom_three:
                 $rootScope.luminate.groups.pom = "2:00 PM";
-                console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
                 break;
               case $rootScope.luminate.group_id.pom_four:
                 $rootScope.luminate.groups.pom = "4:00 PM";
-                console.log("POM_RSVP: ", $rootScope.luminate.groups.pom);
               case $rootScope.luminate.group_id.medical:
                 // The group ID for the ALC Medform Complete group.
                 // Clear the group of all memebers. Update the checkbox. Run query with same name.
                 $rootScope.luminate.groups.med_form = true;
             }
           });
-
-          //console.log($rootScope.luminate.grp_info);
-          console.log("Orientation Groups:", $rootScope.luminate.groups);
 
         }, function(grpResponseErorr) {
           console.log("Error getting grpResponse: ", grpResponseErorr);
