@@ -28,8 +28,8 @@ angular.module('app.controllers', [])
         var secondsSpan = clock.querySelector('.seconds');
 
         var today = new Date();
-        var pastDeadline = today > deadline ? "past the deadline" : "good to go!";
-        console.log("Deadline: You are ", pastDeadline)
+        var pastDeadline = today > deadline ? 'past the deadline' : 'good to go!';
+        console.log('Deadline: You are ', pastDeadline)
 
         function updateClock() {
           var t = getTimeRemaining(endtime);
@@ -59,18 +59,18 @@ angular.module('app.controllers', [])
 
       $http({
         method: 'POST',
-        url: $rootScope.luminate.uri + "CRConsAPI",
-        data: "method=logout" + $rootScope.luminate.postdata,
+        url: $rootScope.luminate.uri + 'CRConsAPI',
+        data: 'method=logout' + $rootScope.luminate.postdata,
         headers: $rootScope.luminate.header
       }).then(function() {
 
         $rootScope.luminate.loggedIn = false;
-        $rootScope.luminate.cons_id = "";
-        $rootScope.luminate.token = "";
+        $rootScope.luminate.cons_id = '';
+        $rootScope.luminate.token = '';
         $rootScope.luminate.tr_info = {};
         $rootScope.luminate.bikeParking = false;
         $rootScope.luminate.groups = {
-          pom: "NO RSVP",
+          pom: 'NO RSVP',
           med_form: false,
           incentive_pickup: false
         };
@@ -78,17 +78,17 @@ angular.module('app.controllers', [])
         $ionicSideMenuDelegate.toggleLeft();
         $state.go('menu.home');
       }, function() {
-        console.log("Log out failed.");
+        console.log('Log out failed.');
       });
     }
   })
 
-  .controller('loginCtrl', function($scope, $ionicPopup, $state, $stateParams, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, tentMateService, participantProgress, constituentGroupsService) {
+  .controller('loginCtrl', function($scope, $ionicPopup, $state, $stateParams, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, tentMateService, participantProgress, constituentGroupsService, interactionService) {
 
     // Form data for the login modal
     $scope.loginData = {};
-    $scope.loginData.username = window.localStorage.username || "";
-    $scope.loginData.password = window.localStorage.password || "";
+    $scope.loginData.username = window.localStorage.username || '';
+    $scope.loginData.password = window.localStorage.password || '';
     $scope.savePassword = true;
 
     // Perform the login action when the user submits the login form
@@ -97,8 +97,8 @@ angular.module('app.controllers', [])
       //LOGIN REQUEST
       $http({
         method: 'POST',
-        url: $rootScope.luminate.uri + "CRConsAPI",
-        data: "method=login" + $rootScope.luminate.postdata + "&user_name=" + $scope.loginData.username + "&password=" + $scope.loginData.password,
+        url: $rootScope.luminate.uri + 'CRConsAPI',
+        data: 'method=login' + $rootScope.luminate.postdata + '&user_name=' + $scope.loginData.username + '&password=' + $scope.loginData.password,
         headers: $rootScope.luminate.header
       })
         .success(function(loginResponseData) {
@@ -118,7 +118,7 @@ angular.module('app.controllers', [])
           $rootScope.luminate.loggedIn = true;
         })
         .error(function(errorResponse) {
-          console.log("Log in error:", errorResponse);
+          console.log('Log in error:', errorResponse);
           $rootScope.luminate.loggedIn = false;
           $ionicPopup.alert({
             title: 'Alert!',
@@ -142,19 +142,8 @@ angular.module('app.controllers', [])
         setTimeout(function() {
           $state.go('menu.home');
         }, 500);
-        console.log("RootScope Luminate Object:", $rootScope.luminate);
 
-        // Log login interaction to CONS profile
-        $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + "CRConsAPI",
-          data: "method=logInteraction" + $rootScope.luminate.postdata + "&interaction_subject=My ALC Spin login&cons_id=" + $rootScope.luminate.cons_id + "&interaction_body=Logged in with My ALC Spin app&interaction_type_id=1010&sso_auth_token=" + $rootScope.luminate.token,
-          headers: $rootScope.luminate.header
-        }).success(function(loginResponseData) {
-          console.log("Logged interaction 1010");
-        }).error(function(response) {
-          console.log("Interaction error:", response);
-        });
+        interactionService.logInteraction('My ALC Spin login', '*** Test ***\nLogged in with My ALC Spin app');
       });
 
     };
@@ -165,7 +154,7 @@ angular.module('app.controllers', [])
 
   .controller('orientationDayCtrl', function($scope, $stateParams, $rootScope) {
 
-    JsBarcode("#alc-num-barcode", $rootScope.luminate.tr_info.raceNumber, {
+    JsBarcode('#alc-num-barcode', $rootScope.luminate.tr_info.raceNumber, {
       width: 3
     });
 
@@ -186,7 +175,7 @@ angular.module('app.controllers', [])
 
   .controller('bikeLocationCtrl', function($scope, $rootScope, $stateParams, $http) {
 
-    var sheetsu = "https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=" + $rootScope.luminate.tr_info.raceNumber;
+    var sheetsu = 'https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=' + $rootScope.luminate.tr_info.raceNumber;
 
     $scope.getBikeInfo = function() {
 
@@ -197,16 +186,16 @@ angular.module('app.controllers', [])
 
         // Bike Location data
         var bikeInfo = bikeInfoResponse.data[0];
-        console.log("Bike info:", bikeInfo);
+        console.log('Bike info:', bikeInfo);
 
         // Update Scope
         $scope.bike_rack = bikeInfo.bike_rack;
-        console.log("rack", $scope.bike_rack)
+        console.log('rack', $scope.bike_rack)
         $scope.bike_scan_date = bikeInfo.date;
         $scope.bike_scan_time = bikeInfo.time;
 
       }, function errorCallback(response) {
-        console.log("Sheetsu Failure:", response);
+        console.log('Sheetsu Failure:', response);
       });
 
     }

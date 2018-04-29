@@ -13,7 +13,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
     $sceDelegateProvider.resourceUrlWhitelist(['self', '*://www.youtube.com/**', '*://player.vimeo.com/video/**']);
 
   })
-
   .run(function($ionicPlatform, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, constituentGroupsService, participantProgress, tentMateService) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -100,7 +99,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       $rootScope.ticketToRide();
       $rootScope.$broadcast('scroll.refreshComplete');
     }
-
 
   })
 

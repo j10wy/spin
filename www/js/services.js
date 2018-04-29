@@ -7,8 +7,8 @@ angular.module('app.services', [])
         self = this;
         $http({
           method: 'POST',
-          url: $rootScope.luminate.uri + "CRConsAPI",
-          data: "method=login" + $rootScope.luminate.postdata + "&user_name=" + username + "&password=" + password,
+          url: $rootScope.luminate.uri + 'CRConsAPI',
+          data: 'method=login' + $rootScope.luminate.postdata + '&user_name=' + username + '&password=' + password,
           headers: $rootScope.luminate.header
         }).success(function(data) {
           self.data = data.loginResponse;
@@ -24,8 +24,8 @@ angular.module('app.services', [])
       getConsRecord: function() {
         $http({
           method: 'POST',
-          url: $rootScope.luminate.uri + "CRConsAPI",
-          data: "method=getUser" + $rootScope.luminate.postdata + "&cons_id=" + $rootScope.luminate.cons_id + "&sso_auth_token=" + $rootScope.luminate.token,
+          url: $rootScope.luminate.uri + 'CRConsAPI',
+          data: 'method=getUser' + $rootScope.luminate.postdata + '&cons_id=' + $rootScope.luminate.cons_id + '&sso_auth_token=' + $rootScope.luminate.token,
           headers: $rootScope.luminate.header
         }).then(function(consResponse) {
 
@@ -44,67 +44,67 @@ angular.module('app.services', [])
 
             switch (cons_customId) {
 
-              case "custom_boolean3":
+              case 'custom_boolean3':
                 // Bike Parking boolean
-                $rootScope.luminate.bikeParking = (cons_customContent === "true") ? true : false;
+                $rootScope.luminate.bikeParking = (cons_customContent === 'true') ? true : false;
                 break;
 
-              case "custom_boolean13":
+              case 'custom_boolean13':
                 // Bike Parking boolean
-                $rootScope.luminate.bikeParking = (cons_customContent === "true") ? true : false;
+                $rootScope.luminate.bikeParking = (cons_customContent === 'true') ? true : false;
                 break;
 
-              case "custom_string3":
+              case 'custom_string3':
                 // Roadie Team Assignment
                 $rootScope.luminate.roadieTeamAssignment = cons_customContent;
                 break;
 
-              case "custom_string5":
+              case 'custom_string5':
                 // Roadie Team Captain
                 $rootScope.luminate.roadieTeamCaptain = cons_customContent;
                 break;
 
-              case "custom_string9":
+              case 'custom_string9':
                 // Meal Preference
                 $rootScope.luminate.tentAddress = cons_customContent;
-                console.log("tentAddress:", $rootScope.luminate.tentAddress);
+                console.log('tentAddress:', $rootScope.luminate.tentAddress);
                 break;
 
-              case "custom_string11":
+              case 'custom_string11':
                 // Meal Preference
                 $rootScope.luminate.mealPreference = cons_customContent;
-                console.log("mealPreference:", $rootScope.luminate.mealPreference);
+                console.log('mealPreference:', $rootScope.luminate.mealPreference);
                 break;
 
-              case "custom_string14":
+              case 'custom_string14':
                 // Tent Keyword
                 $rootScope.luminate.tentKeyword = cons_customContent;
-                console.log("tentKeyword:", $rootScope.luminate.tentKeyword);
+                console.log('tentKeyword:', $rootScope.luminate.tentKeyword);
                 break;
 
-              case "custom_string16":
+              case 'custom_string16':
                 // ALC Representitive
                 $rootScope.luminate.alcRep = cons_customContent;
-                console.log("alcRep:", $rootScope.luminate.alcRep);
+                console.log('alcRep:', $rootScope.luminate.alcRep);
                 break;
 
-              case "custom_string19":
+              case 'custom_string19':
                 // ALC Region
                 $rootScope.luminate.alcRegion = cons_customContent;
-                console.log("alcRegion:", $rootScope.luminate.alcRegion);
+                console.log('alcRegion:', $rootScope.luminate.alcRegion);
                 break;
 
-              case "custom_string30":
+              case 'custom_string30':
                 // ALC Shirt Size
                 $rootScope.luminate.shirtSize = cons_customContent;
-                console.log("shirtSize:", $rootScope.luminate.shirtSize);
+                console.log('shirtSize:', $rootScope.luminate.shirtSize);
                 break;
             }
           });
-          console.log("Constituent Information", $rootScope.luminate.cons_info);
-          console.log("Bike Parking:", $rootScope.luminate.bikeParking);
+          console.log('Constituent Information', $rootScope.luminate.cons_info);
+          console.log('Bike Parking:', $rootScope.luminate.bikeParking);
         }, function(consResponseErorr) {
-          console.log("Error getting Constituent Information", consResponseErorr);
+          console.log('Error getting Constituent Information', consResponseErorr);
         });
       }
     }
@@ -137,13 +137,30 @@ angular.module('app.services', [])
     }
 
   })
+  .service('interactionService', function($rootScope, $stateParams, $http) {
+    return {
+      logInteraction: function(subject, body) {
+        // Log login interaction to CONS profile
+        $http({
+          method: 'POST',
+          url: $rootScope.luminate.uri + 'CRConsAPI',
+          data: 'method=logInteraction' + $rootScope.luminate.postdata + '&interaction_subject=' + subject + '&cons_id=' + $rootScope.luminate.cons_id + '&interaction_body=' + body + '&interaction_type_id=1010&sso_auth_token=' + $rootScope.luminate.token,
+          headers: $rootScope.luminate.header
+        }).success(function(loginResponseData) {
+          console.log('Login interaction successful');
+        }).error(function(response) {
+          console.log('Interaction error:', response);
+        });
+      }
+    }
+  })
   .service('teamRaiserService', function($http, $rootScope) {
     return {
       getTeamRaiserRegistration: function() {
         $http({
           method: 'POST',
-          url: $rootScope.luminate.uri + "CRTeamraiserAPI",
-          data: "method=getRegistration" + $rootScope.luminate.postdata + "&sso_auth_token=" + $rootScope.luminate.token + "&fr_id=" + $rootScope.luminate.fr_id,
+          url: $rootScope.luminate.uri + 'CRTeamraiserAPI',
+          data: 'method=getRegistration' + $rootScope.luminate.postdata + '&sso_auth_token=' + $rootScope.luminate.token + '&fr_id=' + $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
         }).then(function(trResponse) {
 
@@ -155,21 +172,21 @@ angular.module('app.services', [])
           switch ($rootScope.luminate.tr_info.participationTypeId) {
             case $rootScope.luminate.type_id.cyclist:
               // Participation type is Cyclist
-              $rootScope.luminate.tr_info.typeName = "Cyclist";
+              $rootScope.luminate.tr_info.typeName = 'Cyclist';
               break;
             case $rootScope.luminate.type_id.staff:
               // Participation type is Staff
-              $rootScope.luminate.tr_info.typeName = "Staff";
+              $rootScope.luminate.tr_info.typeName = 'Staff';
               break;
             case $rootScope.luminate.type_id.roadie:
               // Participation type is Staff
-              $rootScope.luminate.tr_info.typeName = "Roadie";
+              $rootScope.luminate.tr_info.typeName = 'Roadie';
               break;
           }
 
         }, function(trResponseErorr) {
 
-          console.log("Error getting TeamRaiser Registration:", trResponseErorr);
+          console.log('Error getting TeamRaiser Registration:', trResponseErorr);
 
         });
       }
@@ -181,8 +198,8 @@ angular.module('app.services', [])
       getTentMate: function() {
         $http({
           method: 'POST',
-          url: $rootScope.luminate.uri + "CRTeamraiserAPI",
-          data: "method=getTentmate" + $rootScope.luminate.postdata + "&sso_auth_token=" + $rootScope.luminate.token + "&fr_id=" + $rootScope.luminate.fr_id,
+          url: $rootScope.luminate.uri + 'CRTeamraiserAPI',
+          data: 'method=getTentmate' + $rootScope.luminate.postdata + '&sso_auth_token=' + $rootScope.luminate.token + '&fr_id=' + $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
         }).then(function(tentMateResponse) {
 
@@ -201,19 +218,19 @@ angular.module('app.services', [])
 
         }, function(tentMateResponseErorr) {
 
-          console.log("Error getting TeamRaiser Registration:", tentMateResponseErorr);
+          console.log('Error getting TeamRaiser Registration:', tentMateResponseErorr);
 
         });
       }
     }
   })
-  .service("participantProgress", function($http, $rootScope) {
+  .service('participantProgress', function($http, $rootScope) {
     return {
       getProgress: function() {
         $http({
           method: 'POST',
-          url: $rootScope.luminate.uri + "CRTeamraiserAPI",
-          data: "method=getParticipantProgress" + $rootScope.luminate.postdata + "&cons_id=" + $rootScope.luminate.cons_id + "&fr_id=" + $rootScope.luminate.fr_id,
+          url: $rootScope.luminate.uri + 'CRTeamraiserAPI',
+          data: 'method=getParticipantProgress' + $rootScope.luminate.postdata + '&cons_id=' + $rootScope.luminate.cons_id + '&fr_id=' + $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
         }).then(function(partProgressResponse) {
 
@@ -221,19 +238,19 @@ angular.module('app.services', [])
 
         }, function(partProgressErorr) {
 
-          console.log("Error getting trPartReponse: ", partProgressErorr);
+          console.log('Error getting trPartReponse: ', partProgressErorr);
 
         });
       }
     }
   })
-  .service("constituentGroupsService", function($http, $rootScope) {
+  .service('constituentGroupsService', function($http, $rootScope) {
     return {
       getGroups: function() {
         $http({
           method: 'POST',
-          url: $rootScope.luminate.uri + "CRConsAPI",
-          data: "method=getUserGroups" + $rootScope.luminate.postdata + "&sso_auth_token=" + $rootScope.luminate.token + "&cons_id=" + $rootScope.luminate.cons_id,
+          url: $rootScope.luminate.uri + 'CRConsAPI',
+          data: 'method=getUserGroups' + $rootScope.luminate.postdata + '&sso_auth_token=' + $rootScope.luminate.token + '&cons_id=' + $rootScope.luminate.cons_id,
           headers: $rootScope.luminate.header
         }).then(function(grpResponse) {
 
@@ -248,16 +265,16 @@ angular.module('app.services', [])
               // Participants are added to an email group associated with each POM when they RSVP
               // The IDs in the Switch statement below are the email group IDs
               case $rootScope.luminate.group_id.pom_one:
-                $rootScope.luminate.groups.pom = "9:00 AM";
+                $rootScope.luminate.groups.pom = '9:00 AM';
                 break;
               case $rootScope.luminate.group_id.pom_two:
-                $rootScope.luminate.groups.pom = "11:00 AM";
+                $rootScope.luminate.groups.pom = '11:00 AM';
                 break;
               case $rootScope.luminate.group_id.pom_three:
-                $rootScope.luminate.groups.pom = "2:00 PM";
+                $rootScope.luminate.groups.pom = '2:00 PM';
                 break;
               case $rootScope.luminate.group_id.pom_four:
-                $rootScope.luminate.groups.pom = "4:00 PM";
+                $rootScope.luminate.groups.pom = '4:00 PM';
               case $rootScope.luminate.group_id.medical:
                 // The group ID for the ALC Medform Complete group.
                 // Clear the group of all memebers. Update the checkbox. Run query with same name.
@@ -266,7 +283,7 @@ angular.module('app.services', [])
           });
 
         }, function(grpResponseErorr) {
-          console.log("Error getting grpResponse: ", grpResponseErorr);
+          console.log('Error getting grpResponse: ', grpResponseErorr);
         });
       }
     }
