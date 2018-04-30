@@ -5,6 +5,8 @@ angular.module('app.controllers', [])
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
     function($scope, $stateParams) {
 
+      var deadline = new Date('June 3, 2018 7:00:00');
+
       function getTimeRemaining(endtime) {
         var t = Date.parse(endtime) - Date.parse(new Date());
         var seconds = Math.floor((t / 1000) % 60);
@@ -26,18 +28,21 @@ angular.module('app.controllers', [])
         var hoursSpan = clock.querySelector('.hours');
         var minutesSpan = clock.querySelector('.minutes');
         var secondsSpan = clock.querySelector('.seconds');
-
         var today = new Date();
-        var pastDeadline = today > deadline ? 'past the deadline' : 'good to go!';
-        console.log('Deadline: You are ', pastDeadline)
 
         function updateClock() {
           var t = getTimeRemaining(endtime);
-
           daysSpan.innerHTML = t.days;
           hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
           minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
           secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+          if (today > deadline) {
+            daysSpan.innerHTML = 0;
+            hoursSpan.innerHTML = 0;
+            minutesSpan.innerHTML = 0;
+            secondsSpan.innerHTML = 0;
+          }
 
           if (t.total <= 0) {
             clearInterval(timeinterval);
@@ -47,8 +52,6 @@ angular.module('app.controllers', [])
         updateClock();
         var timeinterval = setInterval(updateClock, 1000);
       }
-
-      var deadline = new Date('June 3, 2018 07:00:00');
       initializeClock('clockdiv', deadline);
     }
   ])
