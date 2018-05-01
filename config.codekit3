@@ -15168,22 +15168,35 @@
 		"oT": 1,
 		"q": 100
 		},
+	"\/scss\/ionic.app.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/www\/css\/ionic.app.css",
+		"oF": 2,
+		"oS": 2,
+		"uL": 1
+		},
+	"\/www\/css\/ionic.app.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/www\/css\/ionic.app-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"\/www\/css\/ionic.app.css.map": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/www\/css\/ionic.app.css.map",
 		"oF": 0
-		},
-	"\/www\/img\/avfsZwJT9WGsBj982ul1_kitten1.jpg": {
-		"ft": 16384,
-		"iS": 93045,
-		"oA": 0,
-		"oAP": "\/www\/img\/avfsZwJT9WGsBj982ul1_kitten1.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
 		},
 	"\/www\/img\/bg.svg": {
 		"ft": 2097152,
@@ -15194,36 +15207,6 @@
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
-		},
-	"\/www\/img\/gHd5vedGQJu4s4qsPQvr_kitten2.jpg": {
-		"ft": 16384,
-		"iS": 70857,
-		"oA": 0,
-		"oAP": "\/www\/img\/gHd5vedGQJu4s4qsPQvr_kitten2.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
-		},
-	"\/www\/img\/taKH7tJpSumzEioQhnev_home-screen-bg.svg": {
-		"ft": 2097152,
-		"miP": 0,
-		"oA": 2,
-		"oAP": "\/www\/img\/taKH7tJpSumzEioQhnev_home-screen-bg.svg",
-		"oF": 0,
-		"opt": 0,
-		"plM": 3758088159,
-		"prP": 0
-		},
-	"\/www\/img\/WE6rB9dZRTiIWQlP5qsA_kitten3.jpg": {
-		"ft": 16384,
-		"iS": 47601,
-		"oA": 0,
-		"oAP": "\/www\/img\/WE6rB9dZRTiIWQlP5qsA_kitten3.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
 		},
 	"\/www\/index.html": {
 		"cB": 0,
@@ -16056,6 +16039,20 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/www\/templates\/bikeLocation.html",
+		"oF": 0
+		},
+	"\/www\/templates\/checkIn.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/www\/templates\/checkIn.html",
+		"oF": 0
+		},
+	"\/www\/templates\/home.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/www\/templates\/home.html",
 		"oF": 0
 		},
 	"\/www\/templates\/incentives.html": {
