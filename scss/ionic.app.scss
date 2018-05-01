@@ -68,7 +68,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 .checkin-teamraiser {
-  background-color: #003C6F;
+  background-color: #000;
 }
 
 .ionic-refresher-content {
@@ -80,6 +80,11 @@ label.item.item-input input {
 }
 
 ion-content.alc-bg {
+  background: $alc_dark_gray;
+  background-size: cover;
+}
+
+ion-content.alc-rll {
   background: url(../img/bg.svg) no-repeat center;
   background-size: cover;
 }
@@ -123,4 +128,17 @@ div.alc-barcode-svg {
     display: inline-block;
     overflow: hidden;
   }
+}
+
+ion-view#page5 ion-content {
+  background: $alc_dark_gray;
+  input[type='text'], input[type='password'] {
+    color:white;
+    font-size: 22px;
+  }
+}
+
+ion-item.checkin-teamraiser {
+  border-radius: 0px;
+  border: 1px solid black;
 }
