@@ -1,91 +1,89 @@
 angular.module('app.routes', [])
 
-.config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider, $urlRouterProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-    
-
+    // Ionic uses AngularUI Router which uses the concept of states
+    // Learn more here: https://github.com/angular-ui/ui-router
+    // Set up the various states which the app can be in.
+    // Each state's controller can be found in controllers.js
+    $stateProvider
       .state('menu.home', {
-    url: '/home',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
-      }
-    }
-  })
+        url: '/home',
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/home.html',
+            controller: 'homeCtrl'
+          }
+        }
+      })
 
-  .state('menu', {
-    url: '/side-menu',
-    templateUrl: 'templates/menu.html',
-    controller: 'menuCtrl'
-  })
+      .state('menu', {
+        url: '/side-menu',
+        templateUrl: 'templates/menu.html',
+        controller: 'menuCtrl'
+      })
 
-  .state('menu.login', {
-    url: '/login',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
-      }
-    }
-  })
+      .state('menu.login', {
+        url: '/login',
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/login.html',
+            controller: 'loginCtrl'
+          }
+        }
+      })
 
-  .state('menu.checkIn', {
-    url: '/checkIn',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/checkIn.html',
-        controller: 'checkInCtrl'
-      }
-    }
-  })
+      .state('menu.checkIn', {
+        url: '/checkIn',
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/checkIn.html',
+            controller: 'checkInCtrl'
+          }
+        }
+      })
 
-  .state('menu.orientationDay', {
-    url: '/orientationday',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/orientationDay.html',
-        controller: 'orientationDayCtrl'
-      }
-    }
-  })
+      .state('menu.orientationDay', {
+        url: '/orientationday',
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/orientationDay.html',
+            controller: 'orientationDayCtrl'
+          }
+        }
+      })
 
-  .state('menu.incentives', {
-    url: '/incentives',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/incentives.html',
-        controller: 'incentivesCtrl'
-      }
-    }
-  })
+      .state('menu.incentives', {
+        url: '/incentives',
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/incentives.html',
+            controller: 'incentivesCtrl'
+          }
+        }
+      })
 
-  .state('menu.roadies', {
-    url: '/roadies',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/roadies.html',
-        controller: 'roadiesCtrl'
-      }
-    }
-  })
+      .state('menu.roadies', {
+        url: '/roadies',
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/roadies.html',
+            controller: 'roadiesCtrl'
+          }
+        }
+      })
 
-  .state('menu.bikeLocation', {
-    url: '/bikelocation',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/bikeLocation.html',
-        controller: 'bikeLocationCtrl'
-      }
-    }
-  })
+      .state('menu.bikeLocation', {
+        url: '/bikelocation',
+        views: {
+          'side-menu': {
+            templateUrl: 'templates/bikeLocation.html',
+            controller: 'bikeLocationCtrl'
+          }
+        }
+      })
 
-$urlRouterProvider.otherwise('/side-menu/home')
+    $urlRouterProvider.otherwise('/side-menu/home')
 
 
-});
+  });
