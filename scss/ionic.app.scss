@@ -130,8 +130,8 @@ div.alc-barcode-svg {
   }
 }
 
-ion-view#page5 ion-content {
-  background: $alc_dark_gray;
+ion-view#login ion-content {
+  background: white;
   input[type='text'], input[type='password'] {
     color:white;
     font-size: 22px;
