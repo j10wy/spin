@@ -133,7 +133,7 @@ div.alc-barcode-svg {
 ion-view#login ion-content {
   background: white;
   input[type='text'], input[type='password'] {
-    color:white;
+    color:$alc_black;
     font-size: 22px;
   }
 }
