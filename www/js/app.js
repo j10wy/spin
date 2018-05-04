@@ -52,7 +52,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
         pom_two: '143287',
         pom_three: '143288',
         pom_four: '143289',
-        medical: '140719'
+        medical: '143199'
       },    
       loggedIn: false,
       bikeParking: false,
