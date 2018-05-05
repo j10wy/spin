@@ -2,5 +2,11 @@
   "name": "myapp",
   "app_id": "f271a2de",
   "type": "ionic1",
-  "gulpStartupTasks": ["sass", "watch"]
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "integrations": {
+    "cordova": {}
+  }
 }
