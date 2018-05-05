@@ -8,3 +8,7 @@
  	- *group_id.medical* - Update the medical property with it's corresponding `group ID` in Luminate Online.
  - Update next year TeamRaiser registration link (www/templates/menu.html)
  - Clock (*homeCtrl* -www/js/controllers.js)
+
+ ### Removing Plugins that conflict with iOS builds
+
+ https://forum.ionicframework.com/t/ionic-not-building-for-ios-linker-command-failed-error-65/91481/7
