@@ -9,6 +9,16 @@
  - Update next year TeamRaiser registration link (www/templates/menu.html)
  - Clock (*homeCtrl* -www/js/controllers.js)
 
- ### Removing Plugins that conflict with iOS builds
+ ### Updating the app for Ionic & Cordova Builds
 
- https://forum.ionicframework.com/t/ionic-not-building-for-ios-linker-command-failed-error-65/91481/7
+Every year there is alway an issue an updating and deploying the app for iOS. Here is what I had to do for the 2018 app.
+
+- First, save the currently installed Cordova plugins `cordova plugin save`
+- Remove the iOS platform `cordova platform rm ios`
+- View the installed Cordova plugins `cordova plugin list`
+- The [release of cordova-ios (4.5) requires that the cordova-plugin-console plugin be removed](https://forum.ionicframework.com/t/ionic-not-building-for-ios-linker-command-failed-error-65/91481/7) from your project in order to build since it is now integrated directly `cordova plugin rm cordova-plugin-console`
+- If issues persist, remove and re-install each of the Cordova plugins `cordova plugin rm cordova-plugin-<name-of-plugin>`
+- Reinstall the iOS platform `cordova platform add ios`
+- Finally, run `ionic cordova build ios --prod`
+
+For more help, run `cordova --help` or `cordova plugin --help`
