@@ -8,6 +8,7 @@
  	- *group_id.medical* - Update the medical property with it's corresponding `group ID` in Luminate Online.
  - Update next year TeamRaiser registration link (www/templates/menu.html)
  - Clock (*homeCtrl* -www/js/controllers.js)
+ - Update the incentives and bike parking Firebase databases.
 
  ### Updating the app for Ionic & Cordova Builds
 
@@ -22,3 +23,16 @@ Every year there is alway an issue an updating and deploying the app for iOS. He
 - Finally, run `ionic cordova build ios --prod`
 
 For more help, run `cordova --help` or `cordova plugin --help`
+
+### Import Data to Firebase
+
+1) Open the CSV in Sublime Text
+2) Using the `DataConvter` Plugin, choose the option labled `DataConverter: to JSON (first column as key)`
+3) Enter the following command in the terminal:
+	- Replace `<project-name`> with the name of the database.
+	- Replace the `path` with the path you want to update/replace
+	- Replace the `./demo-firebase-import.json` with the path to the JSON file.
+```
+firebase-import --database_url https://<project-name>.firebaseio.com --path /demo --json ./demo-firebase-import.json
+```
+See the [firebase-import](https://github.com/firebase/firebase-import) repo for more information.
