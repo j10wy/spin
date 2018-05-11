@@ -155,3 +155,5 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       }
     };
   });
+
+  var fb = firebase.initializeApp(fb_config);

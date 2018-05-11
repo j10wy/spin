@@ -3,7 +3,7 @@ angular.module('app.controllers', [])
   .controller('homeCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
     // TIP: Access Route Parameters for your page via $stateParams.parameterName
-    function($scope, $stateParams) {
+    function ($scope, $stateParams) {
 
       var deadline = new Date('June 3, 2018 7:00:00');
 
@@ -56,16 +56,16 @@ angular.module('app.controllers', [])
     }
   ])
 
-  .controller('menuCtrl', function($scope, $rootScope, $state, $stateParams, $http, $ionicSideMenuDelegate) {
+  .controller('menuCtrl', function ($scope, $rootScope, $state, $stateParams, $http, $ionicSideMenuDelegate) {
 
-    $scope.logout = function() {
+    $scope.logout = function () {
 
       $http({
         method: 'POST',
         url: $rootScope.luminate.uri + 'CRConsAPI',
         data: 'method=logout' + $rootScope.luminate.postdata,
         headers: $rootScope.luminate.header
-      }).then(function() {
+      }).then(function () {
 
         $rootScope.luminate.loggedIn = false;
         $rootScope.luminate.cons_id = '';
@@ -80,13 +80,13 @@ angular.module('app.controllers', [])
 
         $ionicSideMenuDelegate.toggleLeft();
         $state.go('menu.home');
-      }, function() {
+      }, function () {
         console.log('Log out failed.');
       });
     }
   })
 
-  .controller('loginCtrl', function($scope, $ionicPopup, $state, $stateParams, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, tentMateService, participantProgress, constituentGroupsService, interactionService) {
+  .controller('loginCtrl', function ($scope, $ionicPopup, $state, $stateParams, $rootScope, $http, $log, loginService, constituentService, teamRaiserService, tentMateService, participantProgress, constituentGroupsService, interactionService) {
 
     // Form data for the login modal
     $scope.loginData = {};
@@ -95,16 +95,16 @@ angular.module('app.controllers', [])
     $scope.savePassword = true;
 
     // Perform the login action when the user submits the login form
-    $scope.login = function() {
+    $scope.login = function () {
 
       //LOGIN REQUEST
       $http({
-        method: 'POST',
-        url: $rootScope.luminate.uri + 'CRConsAPI',
-        data: 'method=login' + $rootScope.luminate.postdata + '&user_name=' + $scope.loginData.username + '&password=' + $scope.loginData.password,
-        headers: $rootScope.luminate.header
-      })
-        .success(function(loginResponseData) {
+          method: 'POST',
+          url: $rootScope.luminate.uri + 'CRConsAPI',
+          data: 'method=login' + $rootScope.luminate.postdata + '&user_name=' + $scope.loginData.username + '&password=' + $scope.loginData.password,
+          headers: $rootScope.luminate.header
+        })
+        .success(function (loginResponseData) {
           //Store the login Success response in the response variable
           var response = loginResponseData.loginResponse;
 
@@ -120,7 +120,7 @@ angular.module('app.controllers', [])
 
           $rootScope.luminate.loggedIn = true;
         })
-        .error(function(errorResponse) {
+        .error(function (errorResponse) {
           console.log('Log in error:', errorResponse);
           $rootScope.luminate.loggedIn = false;
           $ionicPopup.alert({
@@ -128,7 +128,7 @@ angular.module('app.controllers', [])
             template: 'Username or password is incorrect.'
           });
         })
-        .then(function() {
+        .then(function () {
 
           //Get Constituent Profile
           constituentService.getConsRecord();
@@ -141,21 +141,21 @@ angular.module('app.controllers', [])
           //Constituent Groups
           constituentGroupsService.getGroups();
 
-        }).then(function() {
-        setTimeout(function() {
-          $state.go('menu.home');
-        }, 500);
+        }).then(function () {
+          setTimeout(function () {
+            $state.go('menu.home');
+          }, 500);
 
-        interactionService.logInteraction('My ALC Spin login', '*** Test ***\nLogged in with My ALC Spin app');
-      });
+          interactionService.logInteraction('My ALC Spin login', '*** Test ***\nLogged in with My ALC Spin app');
+        });
 
     };
 
   })
 
-  .controller('checkInCtrl', function($scope, $stateParams) {})
+  .controller('checkInCtrl', function ($scope, $stateParams) {})
 
-  .controller('orientationDayCtrl', function($scope, $stateParams, $rootScope) {
+  .controller('orientationDayCtrl', function ($scope, $stateParams, $rootScope) {
 
     JsBarcode('#alc-num-barcode', $rootScope.luminate.tr_info.raceNumber, {
       width: 3
@@ -163,24 +163,34 @@ angular.module('app.controllers', [])
 
   })
 
-  .controller('incentivesCtrl', function($scope, $rootScope, $stateParams, $http, incentivesService) {
+  .controller('incentivesCtrl', function ($scope, $rootScope, $stateParams, $http, incentivesService) {
 
-    incentivesService.getIncentives();
+    $scope.incentiveDisplay = {
+    }
 
-    $scope.incentiveRefresh = function() {
+    $scope.incentives = incentivesService.getIncentives();
+
+    $scope.incentives.on('value', function (snapshot) {
+      $scope.$apply(function () {
+        $scope.incentiveDisplay.c5k = snapshot.val().I_5K;
+      });
+      console.log(Object.keys(snapshot.val()));
+    });
+
+    $scope.incentiveRefresh = function () {
       $scope.getIncentives();
       $scope.$broadcast('scroll.refreshComplete');
     }
 
   })
 
-  .controller('roadiesCtrl', function($scope, $stateParams) {})
+  .controller('roadiesCtrl', function ($scope, $stateParams) {})
 
-  .controller('bikeLocationCtrl', function($scope, $rootScope, $stateParams, $http) {
+  .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http) {
 
     var sheetsu = 'https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=' + $rootScope.luminate.tr_info.raceNumber;
 
-    $scope.getBikeInfo = function() {
+    $scope.getBikeInfo = function () {
 
       $http({
         method: 'GET',
@@ -204,7 +214,7 @@ angular.module('app.controllers', [])
     }
 
     $scope.getBikeInfo();
-    $scope.bikeInfoRefresh = function() {
+    $scope.bikeInfoRefresh = function () {
       $scope.getBikeInfo();
       $scope.$broadcast('scroll.refreshComplete');
     };

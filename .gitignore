@@ -8,3 +8,4 @@ plugins/
 *api_key*
 *DS_Store*
 *codekit*
+www/lib/firebase/firebase.js
