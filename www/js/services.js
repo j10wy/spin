@@ -110,17 +110,16 @@ angular.module('app.services', [])
     }
   })
   .service('incentivesService', function ($rootScope, $stateParams, $http, ) {
+    var cons_id = $rootScope.luminate.cons_id;
 
     return {
-      getIncentives: function () {
-
+      getIncentives: function getIncentives() {
         console.log("Hi from the incentivesService 👋");
-        var cons_id = $rootScope.luminate.cons_id;
-
         var incentives = fb.database().ref('/' + cons_id);
-
         return incentives;
-
+      },
+      updateIncentives: function updateIncentives(incentiveObject) {
+        firebase.database().ref('/' + cons_id).set(incentiveObject);
       }
     }
 
@@ -276,4 +275,4 @@ angular.module('app.services', [])
       }
     }
 
-  })
+  });

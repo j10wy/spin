@@ -188,29 +188,10 @@ angular.module('app.controllers', [])
 
   .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http) {
 
-    var sheetsu = 'https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=' + $rootScope.luminate.tr_info.raceNumber;
+    // var sheetsu = 'https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=' + $rootScope.luminate.tr_info.raceNumber;
 
     $scope.getBikeInfo = function () {
-
-      $http({
-        method: 'GET',
-        url: sheetsu
-      }).then(function successCallback(bikeInfoResponse) {
-
-        // Bike Location data
-        var bikeInfo = bikeInfoResponse.data[0];
-        console.log('Bike info:', bikeInfo);
-
-        // Update Scope
-        $scope.bike_rack = bikeInfo.bike_rack;
-        console.log('rack', $scope.bike_rack)
-        $scope.bike_scan_date = bikeInfo.date;
-        $scope.bike_scan_time = bikeInfo.time;
-
-      }, function errorCallback(response) {
-        console.log('Sheetsu Failure:', response);
-      });
-
+      console.log("Hello from Bike Location Controller 👋");
     }
 
     $scope.getBikeInfo();
@@ -219,4 +200,4 @@ angular.module('app.controllers', [])
       $scope.$broadcast('scroll.refreshComplete');
     };
 
-  })
+  });
