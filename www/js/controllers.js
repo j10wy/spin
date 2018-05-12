@@ -165,8 +165,22 @@ angular.module('app.controllers', [])
 
   .controller('incentivesCtrl', function ($scope, $rootScope, $stateParams, $http, incentivesService) {
 
-    $scope.incentiveDisplay = {
-    }
+    /**
+     * INCENTIVE KEYS:
+     * I_10K = All types $10,000
+     * I_5K = All types $5,000
+     * I_C3K = Cyclist $3,000
+     * I_R3K = Roadie $3,000
+     * I_C1500 = Cyclist $1,500
+     * I_R1500 = Cyclist $1,500
+     * I_C1000 = Cyclist $1,000
+     * I_C500 = Cyclist 500
+     * I_R500 = Roadie 500
+     * I_R100 = Roadie 100 
+     */
+
+    $scope.partType = $rootScope.luminate.tr_info.typeName;
+    $scope.incentiveDisplay = {}
 
     $scope.incentives = incentivesService.getIncentives();
 
@@ -178,7 +192,6 @@ angular.module('app.controllers', [])
     });
 
     $scope.incentiveRefresh = function () {
-      $scope.getIncentives();
       $scope.$broadcast('scroll.refreshComplete');
     }
 
