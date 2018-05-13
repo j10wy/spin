@@ -115,14 +115,23 @@ angular.module('app.services', [])
     return {
       getIncentives: function getIncentives() {
         console.log("Hi from the incentivesService 👋");
-        var incentives = firebaseIncentives().ref('/' + cons_id);
+        var incentives = firebaseIncentives.database().ref('/' + cons_id);
         return incentives;
       },
       updateIncentives: function updateIncentives(incentiveObject) {
         firebase.database().ref('/' + cons_id).set(incentiveObject);
       }
     }
-
+  })
+  .service('bikeParkingService', function($rootScope, $stateParams, $http,) {
+    var participantNumber = $rootScope.luminate.tr_info.raceNumber;
+    return {
+      getBikeLocation: function getBikeLocation() {
+        console.log("Hi from the bikeParkingService 👋");
+        var bikeParking = firebaseBikeParking.database().ref('/' + participantNumber);
+        return bikeParking;
+      }
+    }
   })
   .service('interactionService', function($rootScope, $stateParams, $http) {
     return {

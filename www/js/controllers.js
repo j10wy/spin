@@ -199,15 +199,18 @@ angular.module('app.controllers', [])
 
   .controller('roadiesCtrl', function ($scope, $stateParams) {})
 
-  .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http) {
+  .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http, bikeParkingService) {
 
-    // var sheetsu = 'https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=' + $rootScope.luminate.tr_info.raceNumber;
+    $scope.getBikeInfo = bikeParkingService.getBikeLocation();
+    $scope.bike_rack = null;
 
-    $scope.getBikeInfo = function () {
-      console.log("Hello from Bike Location Controller 👋");
-    }
+    $scope.getBikeInfo.on('value', function (snapshot) {
+      $scope.$apply(function () {
+        $scope.bike_rack = snapshot.val();
+      });
+      console.log("Bike rack", $scope.bike_rack);
+    });
 
-    $scope.getBikeInfo();
     $scope.bikeInfoRefresh = function () {
       $scope.getBikeInfo();
       $scope.$broadcast('scroll.refreshComplete');

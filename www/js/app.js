@@ -160,4 +160,5 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
   });
 
   
-  var firebaseIncentives = firebase.initializeApp(fb_config);
+  var firebaseIncentives = firebase.initializeApp(fb_incentives_config, "firebaseIncentives");
+  var firebaseBikeParking = firebase.initializeApp(fb_bikeParking_config, "firebaseBikeParking");
