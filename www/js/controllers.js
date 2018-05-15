@@ -202,17 +202,17 @@ angular.module('app.controllers', [])
   .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http, bikeParkingService) {
 
     $scope.getBikeInfo = bikeParkingService.getBikeLocation();
-    $scope.bike_rack = null;
+    $scope.bike_data = null;
 
     $scope.getBikeInfo.on('value', function (snapshot) {
       $scope.$apply(function () {
-        $scope.bike_rack = snapshot.val();
+        $scope.bike_data = snapshot.val();
       });
-      console.log("Bike rack", $scope.bike_rack);
+      console.log("Bike data", $scope.bike_data);
     });
 
     $scope.bikeInfoRefresh = function () {
-      $scope.getBikeInfo();
+      $scope.getBikeInfo = bikeParkingService.getBikeLocation();
       $scope.$broadcast('scroll.refreshComplete');
     };
 
