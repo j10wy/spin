@@ -36,7 +36,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
      * See controllers/AppCtrl.js to view how groups are updated at login.
      * The Cyclist, Roadie, and Staff ID's and fr_id need to be updated each year.
      */
-
     $rootScope.luminate = {
       header: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -86,7 +85,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
      */
 
     $rootScope.ticketToRide = function() {
-
       $rootScope.luminate.warning = false;
 
       if ($rootScope.luminate.tentAddress === undefined) {
@@ -143,7 +141,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
    * This directive is used to open regular and
    * dynamic href links inside of inappbrowser.
    */
-
   .directive('hrefInappbrowser', function() {
     return {
       restrict: 'A',

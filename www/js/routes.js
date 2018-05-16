@@ -70,8 +70,7 @@ angular.module('app.routes', [])
         url: '/roadies',
         views: {
           'side-menu': {
-            templateUrl: 'templates/roadies.html',
-            controller: 'roadiesCtrl'
+            templateUrl: 'templates/roadies.html'
           }
         }
       })

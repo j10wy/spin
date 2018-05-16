@@ -177,15 +177,31 @@ angular.module('app.controllers', [])
      */
 
     $scope.partType = $rootScope.luminate.tr_info.typeName;
-    $scope.incentiveDisplay = {}
 
+    $scope.incentiveDisplay = {};
+    $scope.top545Display = {};
+    $scope.top50Display = {};
+    
     $scope.incentives = incentivesService.getIncentives();
+    $scope.top545 = incentivesService.getTop545();
+    $scope.top50 = incentivesService.getTop50();
 
     $scope.incentives.on('value', function (snapshot) {
       $scope.$apply(function () {
-        $scope.incentiveDisplay.c5k = snapshot.val().I_5K;
+        $scope.incentiveDisplay = snapshot.val();
       });
-      console.log(Object.keys(snapshot.val()));
+    });
+
+    $scope.top545.on('value', function (snapshot) {
+      $scope.$apply(function () {
+        $scope.top545Display = snapshot.val();
+      });
+    });
+
+    $scope.top50.on('value', function (snapshot) {
+      $scope.$apply(function () {
+        $scope.top50Display = snapshot.val();
+      });
     });
 
     $scope.incentiveRefresh = function () {
@@ -194,13 +210,11 @@ angular.module('app.controllers', [])
 
   })
 
-  .controller('roadiesCtrl', function ($scope, $stateParams) {})
-
   .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http, bikeParkingService) {
 
     $scope.getBikeInfo = bikeParkingService.getBikeLocation();
     $scope.bike_data = null;
-
+    
     $scope.getBikeInfo.on('value', function (snapshot) {
       $scope.$apply(function () {
         $scope.bike_data = snapshot.val();
