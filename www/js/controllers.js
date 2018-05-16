@@ -1,8 +1,6 @@
 angular.module('app.controllers', [])
 
-  .controller('homeCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-    // You can include any angular dependencies as parameters for this function
-    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+  .controller('homeCtrl', ['$scope', '$stateParams', 
     function ($scope, $stateParams) {
 
       var deadline = new Date('June 3, 2018 7:00:00');
@@ -94,7 +92,6 @@ angular.module('app.controllers', [])
     $scope.loginData.password = window.localStorage.password || '';
     $scope.savePassword = true;
 
-    // Perform the login action when the user submits the login form
     $scope.login = function () {
 
       //LOGIN REQUEST
