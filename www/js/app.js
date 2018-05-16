@@ -1,11 +1,12 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
 // This app is dedicated to the memory of Gilbert Valenzuela ❤️.
+
+/** 
+ * angular.module is a global place for creating, registering and retrieving Angular modules
+ * 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+ * the 2nd parameter is an array of 'requires'
+ * 'starter.services' is found in services.js
+ * 'starter.controllers' is found in controllers.js
+*/
 
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives', 'app.services'])
 
@@ -29,7 +30,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       }
     });
 
-    //Initialize values in the $rootScope.luminate.luminate object. These values will be different for each particpant, and will be updated after login. See controllers/AppCtrl.js to view how groups are updated at login. The Cyclist, Roadie, and Staff ID's and fr_id need to be updated each year.
+    /**
+     * Initialize values in the $rootScope.luminate.luminate object.
+     * These values will be different for each particpant and will be updated after login.
+     * See controllers/AppCtrl.js to view how groups are updated at login.
+     * The Cyclist, Roadie, and Staff ID's and fr_id need to be updated each year.
+     */
 
     $rootScope.luminate = {
       header: {
@@ -74,10 +80,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
     };
 
-    // Intiliaze $rootScope.incentivesInfo.
-    // This will store an object of incentives earned by the participant.
-    $rootScope.incentivesInfo = null;
-    $rootScope.displayIncentives = false;
+    /**
+     * Intiliaze $rootScope.incentivesInfo.
+     * This will store an object of incentives earned by the participant.
+     */
 
     $rootScope.ticketToRide = function() {
 
@@ -105,10 +111,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
 
   })
 
-  /*
-    This directive is used to disable the "drag to open" functionality of the Side-Menu
-    when you are dragging a Slider component.
-  */
+  /**
+   * This directive is used to disable the "drag to open" functionality of the Side-Menu
+   * when you are dragging a Slider component.
+   */
 
   .directive('disableSideMenuDrag', ['$ionicSideMenuDelegate', '$rootScope', function($ionicSideMenuDelegate, $rootScope) {
     return {
@@ -158,7 +164,6 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.directives
       }
     };
   });
-
   
   var firebaseIncentives = firebase.initializeApp(fb_incentives_config, "firebaseIncentives");
   var firebaseBikeParking = firebase.initializeApp(fb_bikeParking_config, "firebaseBikeParking");
