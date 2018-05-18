@@ -164,6 +164,7 @@ angular.module('app.controllers', [])
 
     /**
      * INCENTIVE KEYS:
+     * I_15K = All types $15,000
      * I_10K = All types $10,000
      * I_5K = All types $5,000
      * I_C3K = Cyclist $3,000
@@ -202,6 +203,7 @@ angular.module('app.controllers', [])
       $scope.$apply(function () {
         $scope.top50Display = snapshot.val();
       });
+      console.log(snapshot.val(),$scope.top50Display.earned);
     });
 
     $scope.incentiveRefresh = function () {
