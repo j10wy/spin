@@ -195,6 +195,9 @@ angular.module('app.services', [])
               break;
           }
 
+          console.log("teamRaiserService > Participant Type ID:", $rootScope.luminate.tr_info.participationTypeId);
+          console.log("teamRaiserService > Participant Number:", $rootScope.luminate.tr_info.typeName);
+
         }, function(trResponseErorr) {
 
           console.log('Error getting TeamRaiser Registration:', trResponseErorr);

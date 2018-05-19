@@ -203,10 +203,10 @@ angular.module('app.controllers', [])
       $scope.$apply(function () {
         $scope.top50Display = snapshot.val();
       });
-      console.log(snapshot.val(),$scope.top50Display.earned);
     });
 
     $scope.incentiveRefresh = function () {
+      $rootScope.refresher();
       $scope.$broadcast('scroll.refreshComplete');
     }
 
@@ -225,6 +225,7 @@ angular.module('app.controllers', [])
     });
 
     $scope.bikeInfoRefresh = function () {
+      $rootScope.refresher();
       $scope.getBikeInfo = bikeParkingService.getBikeLocation();
       $scope.$broadcast('scroll.refreshComplete');
     };
