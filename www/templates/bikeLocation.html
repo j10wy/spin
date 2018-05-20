@@ -8,7 +8,7 @@
     </ion-list>
     <ion-list id="bikeLocation-list21">
       <ion-item class="dark" id="bikeLocation-list-item85" style="border-radius:0 0 4px 4px">
-        <h2 class="pom">{{bike_rack}}</h2>
+        <h2 class="pom">{{bike_data.rack}}</h2>
       </ion-item>
     </ion-list>
     <div class="spacer" style="height: 28px;"></div>
@@ -16,7 +16,7 @@
       <ion-item class="item-divider checkin checkin-teamraiser" id="bikeLocation-list-item-divider9" style="border-radius:4px 4px 0 0">
       Your was bike last scanned</ion-item>
       <ion-item class="dark" id="bikeLocation-list-item86" style="border-radius:0 0 4px 4px">
-        <h2 class="pom">{{bike_scan_date}} at {{bike_scan_time}}</h2>
+        <h2 class="pom">{{bike_data.date +  " at " + bike_data.time}}</h2>
       </ion-item>
     </ion-list>
   </ion-content>

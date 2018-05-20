@@ -1,8 +1,6 @@
 angular.module('app.controllers', [])
 
-  .controller('homeCtrl', ['$scope', '$stateParams', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
-    // You can include any angular dependencies as parameters for this function
-    // TIP: Access Route Parameters for your page via $stateParams.parameterName
+  .controller('homeCtrl', ['$scope', '$stateParams', 
     function ($scope, $stateParams) {
 
       var deadline = new Date('June 3, 2018 7:00:00');
@@ -94,7 +92,6 @@ angular.module('app.controllers', [])
     $scope.loginData.password = window.localStorage.password || '';
     $scope.savePassword = true;
 
-    // Perform the login action when the user submits the login form
     $scope.login = function () {
 
       //LOGIN REQUEST
@@ -165,58 +162,72 @@ angular.module('app.controllers', [])
 
   .controller('incentivesCtrl', function ($scope, $rootScope, $stateParams, $http, incentivesService) {
 
-    $scope.incentiveDisplay = {
-    }
+    /**
+     * INCENTIVE KEYS:
+     * I_15K = All types $15,000
+     * I_10K = All types $10,000
+     * I_5K = All types $5,000
+     * I_C3K = Cyclist $3,000
+     * I_R3K = Roadie $3,000
+     * I_C1500 = Cyclist $1,500
+     * I_R1500 = Cyclist $1,500
+     * I_C1000 = Cyclist $1,000
+     * I_C500 = Cyclist 500
+     * I_R500 = Roadie 500
+     * I_R100 = Roadie 100 
+     */
 
+    $scope.partType = $rootScope.luminate.tr_info.typeName;
+
+    $scope.incentiveDisplay = {};
+    $scope.top545Display = {};
+    $scope.top50Display = {};
+    
     $scope.incentives = incentivesService.getIncentives();
+    $scope.top545 = incentivesService.getTop545();
+    $scope.top50 = incentivesService.getTop50();
 
     $scope.incentives.on('value', function (snapshot) {
       $scope.$apply(function () {
-        $scope.incentiveDisplay.c5k = snapshot.val().I_5K;
+        $scope.incentiveDisplay = snapshot.val();
       });
-      console.log(Object.keys(snapshot.val()));
+    });
+
+    $scope.top545.on('value', function (snapshot) {
+      $scope.$apply(function () {
+        $scope.top545Display = snapshot.val();
+      });
+    });
+
+    $scope.top50.on('value', function (snapshot) {
+      $scope.$apply(function () {
+        $scope.top50Display = snapshot.val();
+      });
     });
 
     $scope.incentiveRefresh = function () {
-      $scope.getIncentives();
+      $rootScope.refresher();
       $scope.$broadcast('scroll.refreshComplete');
     }
 
   })
 
-  .controller('roadiesCtrl', function ($scope, $stateParams) {})
+  .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http, bikeParkingService) {
 
-  .controller('bikeLocationCtrl', function ($scope, $rootScope, $stateParams, $http) {
-
-    var sheetsu = 'https://sheetsu.com/apis/v1.0/0e27b4365f4a/search?bike_number=' + $rootScope.luminate.tr_info.raceNumber;
-
-    $scope.getBikeInfo = function () {
-
-      $http({
-        method: 'GET',
-        url: sheetsu
-      }).then(function successCallback(bikeInfoResponse) {
-
-        // Bike Location data
-        var bikeInfo = bikeInfoResponse.data[0];
-        console.log('Bike info:', bikeInfo);
-
-        // Update Scope
-        $scope.bike_rack = bikeInfo.bike_rack;
-        console.log('rack', $scope.bike_rack)
-        $scope.bike_scan_date = bikeInfo.date;
-        $scope.bike_scan_time = bikeInfo.time;
-
-      }, function errorCallback(response) {
-        console.log('Sheetsu Failure:', response);
+    $scope.getBikeInfo = bikeParkingService.getBikeLocation();
+    $scope.bike_data = null;
+    
+    $scope.getBikeInfo.on('value', function (snapshot) {
+      $scope.$apply(function () {
+        $scope.bike_data = snapshot.val();
       });
+      console.log("Bike data", $scope.bike_data);
+    });
 
-    }
-
-    $scope.getBikeInfo();
     $scope.bikeInfoRefresh = function () {
-      $scope.getBikeInfo();
+      $rootScope.refresher();
+      $scope.getBikeInfo = bikeParkingService.getBikeLocation();
       $scope.$broadcast('scroll.refreshComplete');
     };
 
-  })
+  });

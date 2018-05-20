@@ -1,6 +1,6 @@
 {
   "name": "myapp",
-  "app_id": "f271a2de",
+  "app_id": "a24438eb",
   "type": "ionic1",
   "gulpStartupTasks": [
     "sass",
