@@ -1,5 +1,12 @@
 # ALC 2018 Event App
 
+Table of Contents<br>
+- [Annual Update Checklist](#annual-update-checklist)<br>
+- [Import Data to Firebase via Firebase Console](#import-data-to-firebase-via-firebase-console)<br>
+- [Import Data to Firebase via Command Line](#import-data-to-firebase-via-command-line)<br>
+- [Write data offline from Firebase Docs](#write-data-offline-from-firebase-docshttpsfirebasegooglecomdocsdatabasewebread-and-write)<br>
+- [Generating Icons and Splash Images](#generating-icons-and-splash-images)
+
 ### Annual Update Checklist
  - Update the following properties in www/js/app.js:
  	- *fr_id* - This is the ID number assigned to the TeamRaiser
@@ -49,3 +56,27 @@ As a result, all writes to the database trigger local events immediately, before
 Once connectivity is reestablished, your app receives the appropriate set of events so that the client syncs with the current server state, without having to write any custom code.
 
 Note: The Firebase Realtime Database web APIs do not persist data offline outside of the session. In order for writes to be persisted to the server, the web page must not be closed before the data is written to the server.
+
+### Generating Icons and Splash Images
+
+Usage:<br>
+`$ ionic cordova resources [<platform>] [options]`
+
+*__Note__: By default, this command will not regenerate resources whose source image has not changed. To disable this functionality and always overwrite generated images, use --force.*
+
+Ionic can automatically generate perfectly sized icons and splash screens from source images (.png, .psd, or .ai) for your Cordova platforms. 
+
+* The source image for icons should ideally be at least 1024×1024px and located at resources/icon.png.
+* The source image for splash screens should ideally be at least 2732×2732px and located at resources/splash.png.
+
+ Options:
+
+    --force, -f .............. Force regeneration of resources
+    --icon, -i ............... Generate icon resources
+    --splash, -s ............. Generate splash screen resources
+
+  Examples:
+
+`    $ ionic cordova resources`<br>
+`    $ ionic cordova resources ios`<br>
+`    $ ionic cordova resources android`
