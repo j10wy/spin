@@ -5737,7 +5737,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon20x20@2x.png": {
 		"ft": 32768,
-		"iS": 1248,
+		"iS": 4190,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon20x20@2x.png",
 		"oF": 0,
@@ -5748,7 +5748,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon20x20@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 1248,
+		"iS": 4190,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon20x20@2x~ipad.png",
 		"oF": 0,
@@ -5759,7 +5759,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon20x20@3x.png": {
 		"ft": 32768,
-		"iS": 2452,
+		"iS": 6663,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon20x20@3x.png",
 		"oF": 0,
@@ -5770,7 +5770,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29.png": {
 		"ft": 32768,
-		"iS": 1171,
+		"iS": 2962,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29.png",
 		"oF": 0,
@@ -5781,7 +5781,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29@2x.png": {
 		"ft": 32768,
-		"iS": 1984,
+		"iS": 6355,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29@2x.png",
 		"oF": 0,
@@ -5792,7 +5792,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 1984,
+		"iS": 6355,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29@2x~ipad.png",
 		"oF": 0,
@@ -5803,7 +5803,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29@3x.png": {
 		"ft": 32768,
-		"iS": 2745,
+		"iS": 10097,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29@3x.png",
 		"oF": 0,
@@ -5814,7 +5814,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29~ipad.png": {
 		"ft": 32768,
-		"iS": 1171,
+		"iS": 2962,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon29x29~ipad.png",
 		"oF": 0,
@@ -5825,7 +5825,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40@2x.png": {
 		"ft": 32768,
-		"iS": 2643,
+		"iS": 9265,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40@2x.png",
 		"oF": 0,
@@ -5836,7 +5836,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 2643,
+		"iS": 9265,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40@2x~ipad.png",
 		"oF": 0,
@@ -5847,7 +5847,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40@3x.png": {
 		"ft": 32768,
-		"iS": 5786,
+		"iS": 14769,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40@3x.png",
 		"oF": 0,
@@ -5858,7 +5858,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40~ipad.png": {
 		"ft": 32768,
-		"iS": 1511,
+		"iS": 4190,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon40x40~ipad.png",
 		"oF": 0,
@@ -5869,7 +5869,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon50x50@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 4870,
+		"iS": 11960,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon50x50@2x~ipad.png",
 		"oF": 0,
@@ -5880,7 +5880,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon50x50~ipad.png": {
 		"ft": 32768,
-		"iS": 1807,
+		"iS": 5379,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon50x50~ipad.png",
 		"oF": 0,
@@ -5891,7 +5891,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon57x57.png": {
 		"ft": 32768,
-		"iS": 1988,
+		"iS": 6195,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon57x57.png",
 		"oF": 0,
@@ -5902,7 +5902,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon57x57@2x.png": {
 		"ft": 32768,
-		"iS": 5501,
+		"iS": 13818,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon57x57@2x.png",
 		"oF": 0,
@@ -5913,7 +5913,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon60x60@2x.png": {
 		"ft": 32768,
-		"iS": 5786,
+		"iS": 14769,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon60x60@2x.png",
 		"oF": 0,
@@ -5924,7 +5924,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon60x60@3x.png": {
 		"ft": 32768,
-		"iS": 8757,
+		"iS": 23646,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon60x60@3x.png",
 		"oF": 0,
@@ -5935,7 +5935,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon72x72@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 6981,
+		"iS": 18302,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon72x72@2x~ipad.png",
 		"oF": 0,
@@ -5946,7 +5946,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon72x72~ipad.png": {
 		"ft": 32768,
-		"iS": 2384,
+		"iS": 8168,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon72x72~ipad.png",
 		"oF": 0,
@@ -5957,7 +5957,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon76x76@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 7386,
+		"iS": 19447,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon76x76@2x~ipad.png",
 		"oF": 0,
@@ -5968,7 +5968,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon76x76~ipad.png": {
 		"ft": 32768,
-		"iS": 2491,
+		"iS": 8743,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon76x76~ipad.png",
 		"oF": 0,
@@ -5979,7 +5979,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon83.5x83.5@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 8114,
+		"iS": 21539,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/AppIcon83.5x83.5@2x~ipad.png",
 		"oF": 0,
@@ -6032,7 +6032,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-568h@2x.png": {
 		"ft": 32768,
-		"iS": 392,
+		"iS": 1048,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-568h@2x.png",
 		"oF": 0,
@@ -6043,7 +6043,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-568h@2x.png": {
 		"ft": 32768,
-		"iS": 392,
+		"iS": 1048,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-568h@2x.png",
 		"oF": 0,
@@ -6054,7 +6054,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Landscape@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 685,
+		"iS": 1341,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Landscape@2x~ipad.png",
 		"oF": 0,
@@ -6065,7 +6065,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Landscape~ipad.png": {
 		"ft": 32768,
-		"iS": 398,
+		"iS": 1054,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Landscape~ipad.png",
 		"oF": 0,
@@ -6076,7 +6076,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Portrait@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 685,
+		"iS": 1341,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Portrait@2x~ipad.png",
 		"oF": 0,
@@ -6087,7 +6087,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Portrait~ipad.png": {
 		"ft": 32768,
-		"iS": 398,
+		"iS": 1054,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700-Portrait~ipad.png",
 		"oF": 0,
@@ -6098,7 +6098,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700@2x.png": {
 		"ft": 32768,
-		"iS": 378,
+		"iS": 1034,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-700@2x.png",
 		"oF": 0,
@@ -6109,7 +6109,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-800-667h@2x.png": {
 		"ft": 32768,
-		"iS": 426,
+		"iS": 1082,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-800-667h@2x.png",
 		"oF": 0,
@@ -6120,7 +6120,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-800-Landscape-736h@3x.png": {
 		"ft": 32768,
-		"iS": 636,
+		"iS": 1292,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-800-Landscape-736h@3x.png",
 		"oF": 0,
@@ -6131,7 +6131,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-800-Portrait-736h@3x.png": {
 		"ft": 32768,
-		"iS": 639,
+		"iS": 1295,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-800-Portrait-736h@3x.png",
 		"oF": 0,
@@ -6142,7 +6142,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Landscape@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 102289,
+		"iS": 1341,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Landscape@2x~ipad.png",
 		"oF": 0,
@@ -6153,7 +6153,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Landscape~ipad.png": {
 		"ft": 32768,
-		"iS": 22655,
+		"iS": 1054,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Landscape~ipad.png",
 		"oF": 0,
@@ -6164,7 +6164,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Portrait@2x~ipad.png": {
 		"ft": 32768,
-		"iS": 685,
+		"iS": 1341,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Portrait@2x~ipad.png",
 		"oF": 0,
@@ -6175,7 +6175,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Portrait~ipad.png": {
 		"ft": 32768,
-		"iS": 398,
+		"iS": 1054,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage-Portrait~ipad.png",
 		"oF": 0,
@@ -6186,7 +6186,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage.png": {
 		"ft": 32768,
-		"iS": 322,
+		"iS": 978,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage.png",
 		"oF": 0,
@@ -6197,7 +6197,7 @@
 		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage@2x.png": {
 		"ft": 32768,
-		"iS": 378,
+		"iS": 1034,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/LaunchImage@2x.png",
 		"oF": 0,
@@ -6421,12 +6421,22 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/www\/lib\/firebase\/firebase.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/www\/lib\/firebase\/min\/firebase-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/www\/lib\/ionic\/css\/ionic.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 1,
+		"oA": 0,
 		"oAP": "\/platforms\/ios\/build\/emulator\/MyALCSpin.app\/www\/lib\/ionic\/css\/ionic-min.css",
 		"oF": 0,
 		"oS": 3
@@ -8137,6 +8147,20 @@
 		"oAP": "\/platforms\/ios\/MyALCSpin.xcworkspace\/xcshareddata\/xcschemes\/MyALCSpin.xcscheme",
 		"oF": 0
 		},
+	"\/platforms\/ios\/MyALCSpin.xcworkspace\/xcuserdata\/jeffreylowy.xcuserdatad\/UserInterfaceState.xcuserstate": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/platforms\/ios\/MyALCSpin.xcworkspace\/xcuserdata\/jeffreylowy.xcuserdatad\/UserInterfaceState.xcuserstate",
+		"oF": 0
+		},
+	"\/platforms\/ios\/MyALCSpin.xcworkspace\/xcuserdata\/jeffreylowy.xcuserdatad\/xcschemes\/xcschememanagement.plist": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/platforms\/ios\/MyALCSpin.xcworkspace\/xcuserdata\/jeffreylowy.xcuserdatad\/xcschemes\/xcschememanagement.plist",
+		"oF": 0
+		},
 	"\/platforms\/ios\/MyALCSpin\/.gitignore": {
 		"cB": 0,
 		"ft": 8192,
@@ -9011,6 +9035,16 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/platforms\/ios\/www\/lib\/barcode\/min\/barcode-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/platforms\/ios\/www\/lib\/firebase\/firebase.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/platforms\/ios\/www\/lib\/firebase\/min\/firebase-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -12385,12 +12419,569 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"\/resources\/android\/icon\/drawable-hdpi-icon.png": {
+		"ft": 32768,
+		"iS": 8168,
+		"oA": 0,
+		"oAP": "\/resources\/android\/icon\/drawable-hdpi-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/icon\/drawable-ldpi-icon.png": {
+		"ft": 32768,
+		"iS": 3685,
+		"oA": 0,
+		"oAP": "\/resources\/android\/icon\/drawable-ldpi-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/icon\/drawable-mdpi-icon.png": {
+		"ft": 32768,
+		"iS": 5070,
+		"oA": 0,
+		"oAP": "\/resources\/android\/icon\/drawable-mdpi-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/icon\/drawable-xhdpi-icon.png": {
+		"ft": 32768,
+		"iS": 11347,
+		"oA": 0,
+		"oAP": "\/resources\/android\/icon\/drawable-xhdpi-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/icon\/drawable-xxhdpi-icon.png": {
+		"ft": 32768,
+		"iS": 18302,
+		"oA": 0,
+		"oAP": "\/resources\/android\/icon\/drawable-xxhdpi-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/icon\/drawable-xxxhdpi-icon.png": {
+		"ft": 32768,
+		"iS": 25572,
+		"oA": 0,
+		"oAP": "\/resources\/android\/icon\/drawable-xxxhdpi-icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-land-hdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1005,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-land-hdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-land-ldpi-screen.png": {
+		"ft": 32768,
+		"iS": 968,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-land-ldpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-land-mdpi-screen.png": {
+		"ft": 32768,
+		"iS": 978,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-land-mdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-land-xhdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1071,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-land-xhdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-land-xxhdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1145,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-land-xxhdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-land-xxxhdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1258,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-land-xxxhdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-port-hdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1006,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-port-hdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-port-ldpi-screen.png": {
+		"ft": 32768,
+		"iS": 968,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-port-ldpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-port-mdpi-screen.png": {
+		"ft": 32768,
+		"iS": 978,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-port-mdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-port-xhdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1072,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-port-xhdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-port-xxhdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1146,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-port-xxhdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/android\/splash\/drawable-port-xxxhdpi-screen.png": {
+		"ft": 32768,
+		"iS": 1258,
+		"oA": 0,
+		"oAP": "\/resources\/android\/splash\/drawable-port-xxxhdpi-screen.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/resources\/icon.psd": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/resources\/icon.psd",
 		"oF": 0
+		},
+	"\/resources\/icon.psd.md5": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/resources\/icon.psd.md5",
+		"oF": 0
+		},
+	"\/resources\/ios\/icon\/icon-1024.png": {
+		"ft": 32768,
+		"iS": 99213,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-1024.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-40.png": {
+		"ft": 32768,
+		"iS": 4190,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-40.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-40@2x.png": {
+		"ft": 32768,
+		"iS": 9265,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-40@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-40@3x.png": {
+		"ft": 32768,
+		"iS": 14769,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-40@3x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-50.png": {
+		"ft": 32768,
+		"iS": 5379,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-50.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-50@2x.png": {
+		"ft": 32768,
+		"iS": 11960,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-50@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-60.png": {
+		"ft": 32768,
+		"iS": 6663,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-60.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-60@2x.png": {
+		"ft": 32768,
+		"iS": 14769,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-60@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-60@3x.png": {
+		"ft": 32768,
+		"iS": 23646,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-60@3x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-72.png": {
+		"ft": 32768,
+		"iS": 8168,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-72.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-72@2x.png": {
+		"ft": 32768,
+		"iS": 18302,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-72@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-76.png": {
+		"ft": 32768,
+		"iS": 8743,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-76.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-76@2x.png": {
+		"ft": 32768,
+		"iS": 19447,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-76@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-83.5@2x.png": {
+		"ft": 32768,
+		"iS": 21539,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-83.5@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-small.png": {
+		"ft": 32768,
+		"iS": 2962,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-small.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-small@2x.png": {
+		"ft": 32768,
+		"iS": 6355,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-small@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon-small@3x.png": {
+		"ft": 32768,
+		"iS": 10097,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon-small@3x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon.png": {
+		"ft": 32768,
+		"iS": 6195,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/icon\/icon@2x.png": {
+		"ft": 32768,
+		"iS": 13818,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/icon\/icon@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-568h@2x~iphone.png": {
+		"ft": 32768,
+		"iS": 1048,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-568h@2x~iphone.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-667h.png": {
+		"ft": 32768,
+		"iS": 1082,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-667h.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-736h.png": {
+		"ft": 32768,
+		"iS": 1295,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-736h.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-Landscape-736h.png": {
+		"ft": 32768,
+		"iS": 1292,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-Landscape-736h.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-Landscape@2x~ipad.png": {
+		"ft": 32768,
+		"iS": 1341,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-Landscape@2x~ipad.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-Landscape@~ipadpro.png": {
+		"ft": 32768,
+		"iS": 1640,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-Landscape@~ipadpro.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-Landscape~ipad.png": {
+		"ft": 32768,
+		"iS": 1054,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-Landscape~ipad.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-Portrait@2x~ipad.png": {
+		"ft": 32768,
+		"iS": 1341,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-Portrait@2x~ipad.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-Portrait@~ipadpro.png": {
+		"ft": 32768,
+		"iS": 1639,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-Portrait@~ipadpro.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default-Portrait~ipad.png": {
+		"ft": 32768,
+		"iS": 1054,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default-Portrait~ipad.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default@2x~iphone.png": {
+		"ft": 32768,
+		"iS": 1034,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default@2x~iphone.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default@2x~universal~anyany.png": {
+		"ft": 32768,
+		"iS": 1867,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default@2x~universal~anyany.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/resources\/ios\/splash\/Default~iphone.png": {
+		"ft": 32768,
+		"iS": 978,
+		"oA": 0,
+		"oAP": "\/resources\/ios\/splash\/Default~iphone.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"\/resources\/README.md": {
 		"cB": 0,
@@ -12415,6 +13006,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/resources\/splash.psd",
+		"oF": 0
+		},
+	"\/resources\/splash.psd.md5": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/resources\/splash.psd.md5",
 		"oF": 0
 		},
 	"\/scss\/ionic.app.scss": {
