@@ -9,3 +9,4 @@ plugins/
 *DS_Store*
 *codekit*
 www/lib/firebase/firebase.js
+alc.keystore
