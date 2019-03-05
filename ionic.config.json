@@ -1,19 +1,19 @@
 {
   "name": "myapp",
-  "app_id": "a24438eb",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic1",
   "gulpStartupTasks": [
     "sass",
     "watch"
   ],
-  "integrations": {
-    "cordova": {}
-  },
   "watchPatterns": [
     "scss/**/*",
     "www/**/*",
     "!www/lib/**/*",
     "!www/**/*.map"
   ],
-  "backend": "legacy"
+  "backend": "legacy",
+  "id": "a24438eb"
 }
