@@ -2,15 +2,22 @@
 
 Table of Contents<br>
 
-- [Get Started](#get-started)<br>
+- [Commands](#commands)<br>
 - [Annual Update Checklist](#annual-update-checklist)<br>
 - [Firebase Realtime Database](#firebase-realtime-database)<br>
 - [Import Data to Firebase via Command Line](#import-data-to-firebase-via-command-line)<br>
-- [Generating Icons and Splash Images](#generating-icons-and-splash-images)
+- [Generating Icons and Splash Images](#generating-icons-and-splash-images)<br>
+- [Deploy to the App Stores](#deploy-to-the-app-stores)
 
-## Get Started
+## Commands
 
-...
+**Ionic Cordova Prepare** ([docs](https://ionicframework.com/docs/cli/commands/cordova-prepare)) - Copies assets to Cordova platforms, preparing them for native builds. Use `ionic cordova prepare` if you run your project with `Android Studio` or `Xcode`.
+
+`ionic cordova prepare [android |ios]`
+
+**Ionic Serve** ([docs](https://ionicframework.com/docs/cli/commands/serve)) - Starts a local dev server for app dev/testing and watches for changes in your source files and automatically reloads with the updated build.
+
+`ionic serve`
 
 ## Annual Update Checklist
 
@@ -107,3 +114,11 @@ Examples:
 `$ ionic cordova resources`<br>
 `$ ionic cordova resources ios`<br>
 `$ ionic cordova resources android`
+
+## Deploy to the App Stores
+
+1. Read through each up the sections above to update the app.
+
+2. Run `ionic cordova prepare ios` and `ionic cordova android` to prepare the app for native builds.
+
+3. To prepare for Android, navigate to `platforms > android` and open the folder in Android Studio. To prepare for iOS, navigate to `platforms > ios` and open the file ending in `.xcodeproj` to open the project in Xcode.
