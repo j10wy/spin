@@ -1,312 +1,406 @@
-angular.module('app.services', [])
+angular
+  .module("app.services", [])
 
-  .service('loginService', function($http, $rootScope) {
+  .service("loginService", function($http, $rootScope) {
     return {
       data: {},
       getLogin: function(username, password) {
         self = this;
         $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + 'CRConsAPI',
-          data: 'method=login' + $rootScope.luminate.postdata + '&user_name=' + username + '&password=' + password,
+          method: "POST",
+          url: $rootScope.luminate.uri + "CRConsAPI",
+          data:
+            "method=login" +
+            $rootScope.luminate.postdata +
+            "&user_name=" +
+            username +
+            "&password=" +
+            password,
           headers: $rootScope.luminate.header
-        }).success(function(data) {
-          self.data = data.loginResponse;
-          return self.data;
-        }).error(function(error) {
-          console.log(error.errorResponse.message);
-        });
+        })
+          .success(function(data) {
+            self.data = data.loginResponse;
+            return self.data;
+          })
+          .error(function(error) {
+            console.log(error.errorResponse.message);
+          });
       }
-    }
+    };
   })
-  .service('constituentService', function($http, $rootScope) {
+  .service("constituentService", function($http, $rootScope, appConfigService) {
     return {
       getConsRecord: function() {
         $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + 'CRConsAPI',
-          data: 'method=getUser' + $rootScope.luminate.postdata + '&cons_id=' + $rootScope.luminate.cons_id + '&sso_auth_token=' + $rootScope.luminate.token,
+          method: "POST",
+          url: $rootScope.luminate.uri + "CRConsAPI",
+          data:
+            "method=getUser" +
+            $rootScope.luminate.postdata +
+            "&cons_id=" +
+            $rootScope.luminate.cons_id +
+            "&sso_auth_token=" +
+            $rootScope.luminate.token,
           headers: $rootScope.luminate.header
-        }).then(function(consResponse) {
+        }).then(
+          function(consResponse) {
+            $rootScope.luminate.cons_info = consResponse.data.getConsResponse;
 
-          $rootScope.luminate.cons_info = consResponse.data.getConsResponse;
+            var appConfig = appConfigService.getConfig();
+            appConfig.on("value", function(snap) {
+              console.log("new snap", snap.val());
+            });
 
-          var customBooleans = $rootScope.luminate.cons_info.custom.boolean;
-          var customStrings = $rootScope.luminate.cons_info.custom.string;
+            var customBooleans = $rootScope.luminate.cons_info.custom.boolean;
+            var customStrings = $rootScope.luminate.cons_info.custom.string;
 
-          $rootScope.groupArray = [].concat(customBooleans, customStrings);
+            $rootScope.groupArray = [].concat(customBooleans, customStrings);
 
-          //Angular forEach testing Custom Strings
-          angular.forEach($rootScope.groupArray, function(value, key) {
+            //Angular forEach testing Custom Strings
+            angular.forEach($rootScope.groupArray, function(value, key) {
+              var cons_customId = value.id;
+              var cons_customContent = value.content;
 
-            var cons_customId = value.id;
-            var cons_customContent = value.content;
+              switch (cons_customId) {
+                // Bike Parking boolean
+                case "custom_boolean3":
+                  $rootScope.luminate.bikeParking =
+                    cons_customContent === "true" ? true : false;
+                  break;
 
-            switch (cons_customId) {
+                // Bike Parking boolean
+                case "custom_boolean13":
+                  $rootScope.luminate.bikeParking =
+                    cons_customContent === "true" ? true : false;
+                  break;
 
-              // Bike Parking boolean
-              case 'custom_boolean3':
-                $rootScope.luminate.bikeParking = (cons_customContent === 'true') ? true : false;
-                break;
+                // Roadie Team Assignment
+                case "custom_string3":
+                  $rootScope.luminate.roadieTeamAssignment = cons_customContent;
+                  break;
 
-              // Bike Parking boolean
-              case 'custom_boolean13':
-                $rootScope.luminate.bikeParking = (cons_customContent === 'true') ? true : false;
-                break;
+                // Roadie Team Captain
+                case "custom_string5":
+                  $rootScope.luminate.roadieTeamCaptain = cons_customContent;
+                  break;
 
-              // Roadie Team Assignment
-              case 'custom_string3':
-                $rootScope.luminate.roadieTeamAssignment = cons_customContent;
-                break;
+                // Meal Preference
+                case "custom_string9":
+                  $rootScope.luminate.tentAddress = cons_customContent;
+                  console.log("tentAddress:", $rootScope.luminate.tentAddress);
+                  break;
 
-              // Roadie Team Captain
-              case 'custom_string5':
-                $rootScope.luminate.roadieTeamCaptain = cons_customContent;
-                break;
+                // Meal Preference
+                case "custom_string11":
+                  $rootScope.luminate.mealPreference = cons_customContent;
+                  console.log(
+                    "mealPreference:",
+                    $rootScope.luminate.mealPreference
+                  );
+                  break;
 
-              // Meal Preference
-              case 'custom_string9':
-                $rootScope.luminate.tentAddress = cons_customContent;
-                console.log('tentAddress:', $rootScope.luminate.tentAddress);
-                break;
+                // Tent Keyword
+                case "custom_string14":
+                  $rootScope.luminate.tentKeyword = cons_customContent;
+                  console.log("tentKeyword:", $rootScope.luminate.tentKeyword);
+                  break;
 
-              // Meal Preference
-              case 'custom_string11':
-                $rootScope.luminate.mealPreference = cons_customContent;
-                console.log('mealPreference:', $rootScope.luminate.mealPreference);
-                break;
+                // ALC Representitive
+                case "custom_string16":
+                  $rootScope.luminate.alcRep = cons_customContent;
+                  console.log("alcRep:", $rootScope.luminate.alcRep);
+                  break;
 
-              // Tent Keyword
-              case 'custom_string14':
-                $rootScope.luminate.tentKeyword = cons_customContent;
-                console.log('tentKeyword:', $rootScope.luminate.tentKeyword);
-                break;
+                // ALC Region
+                case "custom_string19":
+                  $rootScope.luminate.alcRegion = cons_customContent;
+                  console.log("alcRegion:", $rootScope.luminate.alcRegion);
+                  break;
 
-              // ALC Representitive
-              case 'custom_string16':
-                $rootScope.luminate.alcRep = cons_customContent;
-                console.log('alcRep:', $rootScope.luminate.alcRep);
-                break;
-
-              // ALC Region
-              case 'custom_string19':
-                $rootScope.luminate.alcRegion = cons_customContent;
-                console.log('alcRegion:', $rootScope.luminate.alcRegion);
-                break;
-
-              // ALC Shirt Size
-              case 'custom_string30':
-                $rootScope.luminate.shirtSize = cons_customContent;
-                console.log('shirtSize:', $rootScope.luminate.shirtSize);
-                break;
-            }
-          });
-          console.log('Constituent Information', $rootScope.luminate.cons_info);
-          console.log('Bike Parking:', $rootScope.luminate.bikeParking);
-        }, function(consResponseErorr) {
-          console.log('Error getting Constituent Information', consResponseErorr);
-        });
+                // ALC Shirt Size
+                case "custom_string30":
+                  $rootScope.luminate.shirtSize = cons_customContent;
+                  console.log("shirtSize:", $rootScope.luminate.shirtSize);
+                  break;
+              }
+            });
+            console.log(
+              "Constituent Information",
+              $rootScope.luminate.cons_info
+            );
+            console.log("Bike Parking:", $rootScope.luminate.bikeParking);
+          },
+          function(consResponseErorr) {
+            console.log(
+              "Error getting Constituent Information",
+              consResponseErorr
+            );
+          }
+        );
       }
-    }
+    };
   })
-  .service('incentivesService', function($rootScope, $stateParams, $http,) {
+  .service("incentivesService", function($rootScope, $stateParams, $http) {
     var cons_id = $rootScope.luminate.cons_id;
 
     return {
       getIncentives: function getIncentives() {
-        var incentives = firebaseIncentives.database().ref('/incentives/' + cons_id);
+        var incentives = firebaseIncentives
+          .database()
+          .ref("/incentives/" + cons_id);
         return incentives;
       },
       getTop545: function getIncentives() {
-        var incentives = firebaseIncentives.database().ref('/top545/' + cons_id);
+        var incentives = firebaseIncentives
+          .database()
+          .ref("/top545/" + cons_id);
         return incentives;
       },
       getTop50: function getIncentives() {
-        var incentives = firebaseIncentives.database().ref('/top50/' + cons_id);
+        var incentives = firebaseIncentives.database().ref("/top50/" + cons_id);
         return incentives;
       },
       updateIncentives: function updateIncentives(incentiveObject) {
-        firebase.database().ref('/' + cons_id).set(incentiveObject);
+        firebase
+          .database()
+          .ref("/" + cons_id)
+          .set(incentiveObject);
       }
-    }
+    };
   })
-  .service('bikeParkingService', function($rootScope, $stateParams, $http,) {
+  .service("bikeParkingService", function($rootScope, $stateParams, $http) {
     var participantNumber = $rootScope.luminate.tr_info.raceNumber;
     return {
       getBikeLocation: function getBikeLocation() {
         console.log("Hi from the bikeParkingService 👋");
-        var bikeParking = firebaseBikeParking.database().ref('/' + participantNumber);
+        var bikeParking = firebaseBikeParking
+          .database()
+          .ref("/" + participantNumber);
         return bikeParking;
       }
-    }
+    };
   })
-  .service('interactionService', function($rootScope, $stateParams, $http) {
+  .service("interactionService", function($rootScope, $stateParams, $http) {
     return {
       logInteraction: function(subject, body) {
         // Log login interaction to CONS profile
         $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + 'CRConsAPI',
-          data: 'method=logInteraction' + $rootScope.luminate.postdata + '&interaction_subject=' + subject + '&cons_id=' + $rootScope.luminate.cons_id + '&interaction_body=' + body + '&interaction_type_id=1010&sso_auth_token=' + $rootScope.luminate.token,
+          method: "POST",
+          url: $rootScope.luminate.uri + "CRConsAPI",
+          data:
+            "method=logInteraction" +
+            $rootScope.luminate.postdata +
+            "&interaction_subject=" +
+            subject +
+            "&cons_id=" +
+            $rootScope.luminate.cons_id +
+            "&interaction_body=" +
+            body +
+            "&interaction_type_id=1010&sso_auth_token=" +
+            $rootScope.luminate.token,
           headers: $rootScope.luminate.header
-        }).success(function(loginResponseData) {
-          console.log('Login interaction successful');
-        }).error(function(response) {
-          console.log('Interaction error:', response);
-        });
+        })
+          .success(function(loginResponseData) {
+            console.log("Login interaction successful");
+          })
+          .error(function(response) {
+            console.log("Interaction error:", response);
+          });
       }
-    }
+    };
   })
-  .service('teamRaiserService', function($http, $rootScope) {
+  .service("teamRaiserService", function($http, $rootScope) {
     return {
       getTeamRaiserRegistration: function() {
         $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + 'CRTeamraiserAPI',
-          data: 'method=getRegistration' + $rootScope.luminate.postdata + '&sso_auth_token=' + $rootScope.luminate.token + '&fr_id=' + $rootScope.luminate.fr_id,
+          method: "POST",
+          url: $rootScope.luminate.uri + "CRTeamraiserAPI",
+          data:
+            "method=getRegistration" +
+            $rootScope.luminate.postdata +
+            "&sso_auth_token=" +
+            $rootScope.luminate.token +
+            "&fr_id=" +
+            $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
-        }).then(function(trResponse) {
+        }).then(
+          function(trResponse) {
+            $rootScope.luminate.tr_info =
+              trResponse.data.getRegistrationResponse.registration;
 
-          $rootScope.luminate.tr_info = trResponse.data.getRegistrationResponse.registration;
+            /**
+             * --- ASSIGN PARTICIPATION TYPE BASED ON PARTICIPATION TYPE ID NUMBER ---
+             * Sets the participation type based on the ID numbers in $rootSceope
+             * $rootScope should be the only place you will need to make updates each year
+             * Update the IDs in $rootScope using the participation type IDs in
+             * the TeamRasier settings.
+             *
+             * IDs are located in:
+             * Luminate Online > TeamRaiser > [TeamRaiser Campaign] > 7. Manage Participation Types
+             */
 
-          /**
-           * --- ASSIGN PARTICIPATION TYPE BASED ON PARTICIPATION TYPE ID NUMBER ---
-           * Sets the participation type based on the ID numbers in $rootSceope
-           * $rootScope should be the only place you will need to make updates each year
-           * Update the IDs in $rootScope using the participation type IDs in
-           * the TeamRasier settings.
-           * 
-           * IDs are located in:
-           * Luminate Online > TeamRaiser > [TeamRaiser Campaign] > 7. Manage Participation Types
-           */
+            switch ($rootScope.luminate.tr_info.participationTypeId) {
+              case $rootScope.luminate.type_id.cyclist:
+                // Participation type is Cyclist
+                $rootScope.luminate.tr_info.typeName = "Cyclist";
+                break;
+              case $rootScope.luminate.type_id.staff:
+                // Participation type is Staff
+                $rootScope.luminate.tr_info.typeName = "Staff";
+                break;
+              case $rootScope.luminate.type_id.roadie:
+                // Participation type is Staff
+                $rootScope.luminate.tr_info.typeName = "Roadie";
+                break;
+            }
 
-          switch ($rootScope.luminate.tr_info.participationTypeId) {
-            case $rootScope.luminate.type_id.cyclist:
-              // Participation type is Cyclist
-              $rootScope.luminate.tr_info.typeName = 'Cyclist';
-              break;
-            case $rootScope.luminate.type_id.staff:
-              // Participation type is Staff
-              $rootScope.luminate.tr_info.typeName = 'Staff';
-              break;
-            case $rootScope.luminate.type_id.roadie:
-              // Participation type is Staff
-              $rootScope.luminate.tr_info.typeName = 'Roadie';
-              break;
+            console.log(
+              "teamRaiserService > Participant Type ID:",
+              $rootScope.luminate.tr_info.participationTypeId
+            );
+            console.log(
+              "teamRaiserService > Participant Number:",
+              $rootScope.luminate.tr_info.typeName
+            );
+          },
+          function(trResponseErorr) {
+            console.log(
+              "Error getting TeamRaiser Registration:",
+              trResponseErorr
+            );
           }
-
-          console.log("teamRaiserService > Participant Type ID:", $rootScope.luminate.tr_info.participationTypeId);
-          console.log("teamRaiserService > Participant Number:", $rootScope.luminate.tr_info.typeName);
-
-        }, function(trResponseErorr) {
-
-          console.log('Error getting TeamRaiser Registration:', trResponseErorr);
-
-        });
+        );
       }
-    }
+    };
   })
-  .service('tentMateService', function($http, $rootScope) {
-
+  .service("tentMateService", function($http, $rootScope) {
     return {
       getTentMate: function() {
         $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + 'CRTeamraiserAPI',
-          data: 'method=getTentmate' + $rootScope.luminate.postdata + '&sso_auth_token=' + $rootScope.luminate.token + '&fr_id=' + $rootScope.luminate.fr_id,
+          method: "POST",
+          url: $rootScope.luminate.uri + "CRTeamraiserAPI",
+          data:
+            "method=getTentmate" +
+            $rootScope.luminate.postdata +
+            "&sso_auth_token=" +
+            $rootScope.luminate.token +
+            "&fr_id=" +
+            $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
-        }).then(function(tentMateResponse) {
+        }).then(
+          function(tentMateResponse) {
+            /**
+             * --- TENT ASSIGNMENT STATUS CODES ---
+             * 0 = Initial status
+             * 1 = Eligible for pairing
+             * 2 = No tent required
+             * 3 = Single tent
+             * 4 = Requested
+             * 5 = Requested by tentmate
+             * 6 = Requested by tentmate and eligible
+             * 7 = Accepted awaiting eligibility
+             * 8 = Accepted awaiting tentmate eligibility
+             * 9 = Accepted and confirmed
+             */
 
-          /**
-           * --- TENT ASSIGNMENT STATUS CODES ---
-           * 0 = Initial status 
-           * 1 = Eligible for pairing
-           * 2 = No tent required 
-           * 3 = Single tent 
-           * 4 = Requested 
-           * 5 = Requested by tentmate
-           * 6 = Requested by tentmate and eligible 
-           * 7 = Accepted awaiting eligibility 
-           * 8 = Accepted awaiting tentmate eligibility
-           * 9 = Accepted and confirmed  
-           */
-
-          $rootScope.luminate.tentMate = tentMateResponse.data.getTentmateResponse.record;
-
-        }, function(tentMateResponseErorr) {
-
-          console.log('Error getting TeamRaiser Registration:', tentMateResponseErorr);
-
-        });
+            $rootScope.luminate.tentMate =
+              tentMateResponse.data.getTentmateResponse.record;
+          },
+          function(tentMateResponseErorr) {
+            console.log(
+              "Error getting TeamRaiser Registration:",
+              tentMateResponseErorr
+            );
+          }
+        );
       }
-    }
+    };
   })
-  .service('participantProgress', function($http, $rootScope) {
+  .service("participantProgress", function($http, $rootScope) {
     return {
       getProgress: function() {
         $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + 'CRTeamraiserAPI',
-          data: 'method=getParticipantProgress' + $rootScope.luminate.postdata + '&cons_id=' + $rootScope.luminate.cons_id + '&fr_id=' + $rootScope.luminate.fr_id,
+          method: "POST",
+          url: $rootScope.luminate.uri + "CRTeamraiserAPI",
+          data:
+            "method=getParticipantProgress" +
+            $rootScope.luminate.postdata +
+            "&cons_id=" +
+            $rootScope.luminate.cons_id +
+            "&fr_id=" +
+            $rootScope.luminate.fr_id,
           headers: $rootScope.luminate.header
-        }).then(function(partProgressResponse) {
-
-          $rootScope.luminate.tr_part_progress = partProgressResponse.data.getParticipantProgressResponse.personalProgress;
-
-        }, function(partProgressErorr) {
-
-          console.log('Error getting trPartReponse: ', partProgressErorr);
-
-        });
+        }).then(
+          function(partProgressResponse) {
+            $rootScope.luminate.tr_part_progress =
+              partProgressResponse.data.getParticipantProgressResponse.personalProgress;
+          },
+          function(partProgressErorr) {
+            console.log("Error getting trPartReponse: ", partProgressErorr);
+          }
+        );
       }
-    }
+    };
   })
-  .service('constituentGroupsService', function($http, $rootScope) {
+  .service("constituentGroupsService", function($http, $rootScope) {
     return {
       getGroups: function() {
         $http({
-          method: 'POST',
-          url: $rootScope.luminate.uri + 'CRConsAPI',
-          data: 'method=getUserGroups' + $rootScope.luminate.postdata + '&sso_auth_token=' + $rootScope.luminate.token + '&cons_id=' + $rootScope.luminate.cons_id,
+          method: "POST",
+          url: $rootScope.luminate.uri + "CRConsAPI",
+          data:
+            "method=getUserGroups" +
+            $rootScope.luminate.postdata +
+            "&sso_auth_token=" +
+            $rootScope.luminate.token +
+            "&cons_id=" +
+            $rootScope.luminate.cons_id,
           headers: $rootScope.luminate.header
-        }).then(function(grpResponse) {
+        }).then(
+          function(grpResponse) {
+            $rootScope.luminate.grp_info =
+              grpResponse.data.getConsGroupsResponse.group;
 
-          $rootScope.luminate.grp_info = grpResponse.data.getConsGroupsResponse.group;
+            angular.forEach($rootScope.luminate.grp_info, function(value, key) {
+              var convioGroupId = value.id;
 
-          angular.forEach($rootScope.luminate.grp_info, function(value, key) {
+              /**
+               * --- ASSIGN ORIENTATION MEETING TIME AND MEDICAL FORM CHECK ---
+               * Assign POM time to groups object.
+               * Participants are added to an email group associated with each POM when they RSVP
+               * The IDs in the Switch statement below are the email group IDs
+               */
 
-            var convioGroupId = value.id;
-
-            /**
-             * --- ASSIGN ORIENTATION MEETING TIME AND MEDICAL FORM CHECK ---
-             * Assign POM time to groups object.
-             * Participants are added to an email group associated with each POM when they RSVP
-             * The IDs in the Switch statement below are the email group IDs
-             */
-            
-            switch (convioGroupId) {
-              case $rootScope.luminate.group_id.pom_one:
-                $rootScope.luminate.groups.pom = '9:00 AM';
-                break;
-              case $rootScope.luminate.group_id.pom_two:
-                $rootScope.luminate.groups.pom = '11:00 AM';
-                break;
-              case $rootScope.luminate.group_id.pom_three:
-                $rootScope.luminate.groups.pom = '2:00 PM';
-                break;
-              case $rootScope.luminate.group_id.pom_four:
-                $rootScope.luminate.groups.pom = '4:00 PM';
-              case $rootScope.luminate.group_id.medical:
-                // The group ID for the ALC Medform Complete group.
-                // Clear the group of all memebers. Update the checkbox. Run query with same name.
-                $rootScope.luminate.groups.med_form = true;
-            }
-          });
-
-        }, function(grpResponseErorr) {
-          console.log('Error getting grpResponse: ', grpResponseErorr);
-        });
+              switch (convioGroupId) {
+                case $rootScope.luminate.group_id.pom_one:
+                  $rootScope.luminate.groups.pom = "9:00 AM";
+                  break;
+                case $rootScope.luminate.group_id.pom_two:
+                  $rootScope.luminate.groups.pom = "11:00 AM";
+                  break;
+                case $rootScope.luminate.group_id.pom_three:
+                  $rootScope.luminate.groups.pom = "2:00 PM";
+                  break;
+                case $rootScope.luminate.group_id.pom_four:
+                  $rootScope.luminate.groups.pom = "4:00 PM";
+                case $rootScope.luminate.group_id.medical:
+                  // The group ID for the ALC Medform Complete group.
+                  // Clear the group of all memebers. Update the checkbox. Run query with same name.
+                  $rootScope.luminate.groups.med_form = true;
+              }
+            });
+          },
+          function(grpResponseErorr) {
+            console.log("Error getting grpResponse: ", grpResponseErorr);
+          }
+        );
       }
-    }
-
+    };
+  })
+  .service("appConfigService", function($http, $rootScope) {
+    return {
+      getConfig: function getConfig() {
+        return fb_appConfig.database().ref("/pom");
+      }
+    };
   });
