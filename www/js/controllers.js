@@ -66,6 +66,7 @@ angular
   ])
 
   .controller("menuCtrl", function(
+    appConfigService,
     $scope,
     $rootScope,
     $state,
@@ -74,6 +75,24 @@ angular
     $http,
     $ionicSideMenuDelegate
   ) {
+    $scope.appConfig = appConfigService.getConfig();
+    $scope.appConfig.on("value", function(snapshot) {
+      // Database snapshot of the config object
+      var config = snapshot.val();
+      // Get TeamRaiser ID from Firebase
+      $rootScope.luminate.fr_id = config.teamraiser.id;
+      // Get Cyclist participation type ID from Firebase
+      $rootScope.luminate.type_id.cyclist = config.part_types.cyclist;
+      // Get Roadie participation type ID from Firebase
+      $rootScope.luminate.type_id.roadie = config.part_types.roadie;
+      // Get Staff participation type ID from Firebase
+      $rootScope.luminate.type_id.staff = config.part_types.staff;
+      // Get TRL participation type ID from Firebase
+      $rootScope.luminate.type_id.trl = config.part_types.trl;
+      // Get Virtual Cyclist participation type ID from Firebase
+      $rootScope.luminate.type_id.virtual = config.part_types.virtual;
+      console.log("$rootScope.luminate", $rootScope.luminate);
+    });
     $scope.logout = function() {
       $http({
         method: "POST",
