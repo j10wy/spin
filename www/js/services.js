@@ -400,7 +400,7 @@ angular
   .service("appConfigService", function($http, $rootScope) {
     return {
       getConfig: function getConfig() {
-        return fb_appConfig.database().ref("/pom");
+        return fb_appConfig.database().ref("/");
       }
     };
   });
