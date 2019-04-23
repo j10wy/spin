@@ -1,8 +1,10 @@
+// @ts-ignore
 angular
   .module("app.services", [])
 
   .service("loginService", function($http, $rootScope) {
     return {
+      // @ts-ignore
       data: {},
       getLogin: function(username, password) {
         self = this;
@@ -28,7 +30,7 @@ angular
       }
     };
   })
-  .service("constituentService", function($http, $rootScope, appConfigService) {
+  .service("constituentService", function($http, $rootScope) {
     return {
       getConsRecord: function() {
         $http({
@@ -46,17 +48,13 @@ angular
           function(consResponse) {
             $rootScope.luminate.cons_info = consResponse.data.getConsResponse;
 
-            var appConfig = appConfigService.getConfig();
-            appConfig.on("value", function(snap) {
-              console.log("new snap", snap.val());
-            });
-
             var customBooleans = $rootScope.luminate.cons_info.custom.boolean;
             var customStrings = $rootScope.luminate.cons_info.custom.string;
 
             $rootScope.groupArray = [].concat(customBooleans, customStrings);
 
             //Angular forEach testing Custom Strings
+            // @ts-ignore
             angular.forEach($rootScope.groupArray, function(value, key) {
               var cons_customId = value.id;
               var cons_customContent = value.content;
@@ -227,6 +225,10 @@ angular
           function(trResponse) {
             $rootScope.luminate.tr_info =
               trResponse.data.getRegistrationResponse.registration;
+            console.log(
+              "$rootScope.luminate.tr_info ",
+              $rootScope.luminate.tr_info
+            );
 
             /**
              * --- ASSIGN PARTICIPATION TYPE BASED ON PARTICIPATION TYPE ID NUMBER ---
@@ -400,7 +402,28 @@ angular
   .service("appConfigService", function($http, $rootScope) {
     return {
       getConfig: function getConfig() {
-        return fb_appConfig.database().ref("/");
+        fb_appConfig
+          .database()
+          .ref("/")
+          .on("value", function(snapshot) {
+            var config = snapshot.val();
+
+            console.log("appConfig", config);
+            // Database snapshot of the config object
+
+            // Get TeamRaiser ID from Firebase
+            $rootScope.luminate.fr_id = config.teamraiser.id;
+            // Get Cyclist participation type ID from Firebase
+            $rootScope.luminate.type_id.cyclist = config.part_types.cyclist;
+            // Get Roadie participation type ID from Firebase
+            $rootScope.luminate.type_id.roadie = config.part_types.roadie;
+            // Get Staff participation type ID from Firebase
+            $rootScope.luminate.type_id.staff = config.part_types.staff;
+            // Get TRL participation type ID from Firebase
+            $rootScope.luminate.type_id.trl = config.part_types.trl;
+            // Get Virtual Cyclist participation type ID from Firebase
+            $rootScope.luminate.type_id.virtual = config.part_types.virtual;
+          });
       }
     };
   });
