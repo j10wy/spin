@@ -21,7 +21,9 @@ angular
           headers: $rootScope.luminate.header
         })
           .success(function(data) {
+            // @ts-ignore
             self.data = data.loginResponse;
+            // @ts-ignore
             return self.data;
           })
           .error(function(error) {
@@ -54,6 +56,7 @@ angular
             $rootScope.groupArray = [].concat(customBooleans, customStrings);
 
             //Angular forEach testing Custom Strings
+            // @ts-ignore
             // @ts-ignore
             angular.forEach($rootScope.groupArray, function(value, key) {
               var cons_customId = value.id;
@@ -138,27 +141,32 @@ angular
       }
     };
   })
+  // @ts-ignore
   .service("incentivesService", function($rootScope, $stateParams, $http) {
     var cons_id = $rootScope.luminate.cons_id;
 
     return {
       getIncentives: function getIncentives() {
+        // @ts-ignore
         var incentives = firebaseIncentives
           .database()
           .ref("/incentives/" + cons_id);
         return incentives;
       },
       getTop545: function getIncentives() {
+        // @ts-ignore
         var incentives = firebaseIncentives
           .database()
           .ref("/top545/" + cons_id);
         return incentives;
       },
       getTop50: function getIncentives() {
+        // @ts-ignore
         var incentives = firebaseIncentives.database().ref("/top50/" + cons_id);
         return incentives;
       },
       updateIncentives: function updateIncentives(incentiveObject) {
+        // @ts-ignore
         firebase
           .database()
           .ref("/" + cons_id)
@@ -166,11 +174,13 @@ angular
       }
     };
   })
+  // @ts-ignore
   .service("bikeParkingService", function($rootScope, $stateParams, $http) {
     var participantNumber = $rootScope.luminate.tr_info.raceNumber;
     return {
       getBikeLocation: function getBikeLocation() {
         console.log("Hi from the bikeParkingService 👋");
+        // @ts-ignore
         var bikeParking = firebaseBikeParking
           .database()
           .ref("/" + participantNumber);
@@ -178,6 +188,7 @@ angular
       }
     };
   })
+  // @ts-ignore
   .service("interactionService", function($rootScope, $stateParams, $http) {
     return {
       logInteraction: function(subject, body) {
@@ -198,6 +209,7 @@ angular
             $rootScope.luminate.token,
           headers: $rootScope.luminate.header
         })
+          // @ts-ignore
           .success(function(loginResponseData) {
             console.log("Login interaction successful");
           })
@@ -241,6 +253,11 @@ angular
              * Luminate Online > TeamRaiser > [TeamRaiser Campaign] > 7. Manage Participation Types
              */
 
+            console.log(
+              ">>>",
+              $rootScope.luminate.tr_info.participationTypeId,
+              $rootScope.luminate.type_id.roadie
+            );
             switch ($rootScope.luminate.tr_info.participationTypeId) {
               case $rootScope.luminate.type_id.cyclist:
                 // Participation type is Cyclist
@@ -261,7 +278,7 @@ angular
               $rootScope.luminate.tr_info.participationTypeId
             );
             console.log(
-              "teamRaiserService > Participant Number:",
+              "teamRaiserService > Participant Type:",
               $rootScope.luminate.tr_info.typeName
             );
           },
@@ -363,6 +380,7 @@ angular
             $rootScope.luminate.grp_info =
               grpResponse.data.getConsGroupsResponse.group;
 
+            // @ts-ignore
             angular.forEach($rootScope.luminate.grp_info, function(value, key) {
               var convioGroupId = value.id;
 
@@ -399,24 +417,26 @@ angular
       }
     };
   })
+  // @ts-ignore
   .service("appConfigService", function($http, $rootScope) {
     return {
       getConfig: function getConfig() {
+        // @ts-ignore
         fb_appConfig
           .database()
           .ref("/")
           .on("value", function(snapshot) {
-            var config = snapshot.val();
-
-            console.log("appConfig", config);
             // Database snapshot of the config object
+            var config = snapshot.val();
 
             // Get TeamRaiser ID from Firebase
             $rootScope.luminate.fr_id = config.teamraiser.id;
             // Get Cyclist participation type ID from Firebase
             $rootScope.luminate.type_id.cyclist = config.part_types.cyclist;
             // Get Roadie participation type ID from Firebase
-            $rootScope.luminate.type_id.roadie = config.part_types.roadie;
+            $rootScope.luminate.type_id.roadie = String(
+              config.part_types.roadie
+            );
             // Get Staff participation type ID from Firebase
             $rootScope.luminate.type_id.staff = config.part_types.staff;
             // Get TRL participation type ID from Firebase
