@@ -430,19 +430,24 @@ angular
             var config = snapshot.val();
 
             // Get TeamRaiser ID from Firebase
-            $rootScope.luminate.fr_id = config.teamraiser.id;
+            $rootScope.luminate.fr_id = String(config.teamraiser.id);
             // Get Cyclist participation type ID from Firebase
-            $rootScope.luminate.type_id.cyclist = config.part_types.cyclist;
-            // Get Roadie participation type ID from Firebase
-            $rootScope.luminate.type_id.roadie = String(
-              config.part_types.roadie
-            );
-            // Get Staff participation type ID from Firebase
-            $rootScope.luminate.type_id.staff = config.part_types.staff;
-            // Get TRL participation type ID from Firebase
-            $rootScope.luminate.type_id.trl = config.part_types.trl;
-            // Get Virtual Cyclist participation type ID from Firebase
-            $rootScope.luminate.type_id.virtual = config.part_types.virtual;
+            $rootScope.luminate.type_id = {
+              cyclist: String(config.part_types.cyclist),
+              office: String(config.part_types.office),
+              roadie: String(config.part_types.roadie),
+              staff: String(config.part_types.staff),
+              trl: String(config.part_types.trl),
+              virtual: String(config.part_types.virtual)
+            };
+
+            $rootScope.luminate.group_id = {
+              pom_one: String(config.pom.pom_one),
+              pom_two: String(config.pom.pom_two),
+              pom_three: String(config.pom.pom_three),
+              pom_four: String(config.pom.pom_four),
+              medical: String(config.med_form)
+            };
           });
       }
     };
