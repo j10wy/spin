@@ -57,13 +57,12 @@ angular
 
             //Angular forEach testing Custom Strings
             // @ts-ignore
-            // @ts-ignore
             angular.forEach($rootScope.groupArray, function(value, key) {
               var cons_customId = value.id;
               var cons_customContent = value.content;
 
               switch (cons_customId) {
-                // Bike Parking boolean
+                // ALC Medical Waiver complete (constituent checkbox)
                 case "custom_boolean3":
                   $rootScope.luminate.bikeParking =
                     cons_customContent === "true" ? true : false;
@@ -88,48 +87,39 @@ angular
                 // Meal Preference
                 case "custom_string9":
                   $rootScope.luminate.tentAddress = cons_customContent;
-                  console.log("tentAddress:", $rootScope.luminate.tentAddress);
                   break;
 
                 // Meal Preference
                 case "custom_string11":
                   $rootScope.luminate.mealPreference = cons_customContent;
-                  console.log(
-                    "mealPreference:",
-                    $rootScope.luminate.mealPreference
-                  );
                   break;
 
                 // Tent Keyword
                 case "custom_string14":
                   $rootScope.luminate.tentKeyword = cons_customContent;
-                  console.log("tentKeyword:", $rootScope.luminate.tentKeyword);
                   break;
 
                 // ALC Representitive
                 case "custom_string16":
                   $rootScope.luminate.alcRep = cons_customContent;
-                  console.log("alcRep:", $rootScope.luminate.alcRep);
                   break;
 
                 // ALC Region
                 case "custom_string19":
                   $rootScope.luminate.alcRegion = cons_customContent;
-                  console.log("alcRegion:", $rootScope.luminate.alcRegion);
+                  break;
+
+                // Bike rack to use as a fallback instead of Firebase
+                case "custom_string28":
+                  $rootScope.luminate.bikeRack = cons_customContent;
                   break;
 
                 // ALC Shirt Size
                 case "custom_string30":
                   $rootScope.luminate.shirtSize = cons_customContent;
-                  console.log("shirtSize:", $rootScope.luminate.shirtSize);
                   break;
               }
             });
-            console.log(
-              "Constituent Information",
-              $rootScope.luminate.cons_info
-            );
-            console.log("Bike Parking:", $rootScope.luminate.bikeParking);
           },
           function(consResponseErorr) {
             console.log(
@@ -253,11 +243,6 @@ angular
              * Luminate Online > TeamRaiser > [TeamRaiser Campaign] > 7. Manage Participation Types
              */
 
-            console.log(
-              ">>>",
-              $rootScope.luminate.tr_info.participationTypeId,
-              $rootScope.luminate.type_id.roadie
-            );
             switch ($rootScope.luminate.tr_info.participationTypeId) {
               case $rootScope.luminate.type_id.cyclist:
                 // Participation type is Cyclist
@@ -272,15 +257,6 @@ angular
                 $rootScope.luminate.tr_info.typeName = "Roadie";
                 break;
             }
-
-            console.log(
-              "teamRaiserService > Participant Type ID:",
-              $rootScope.luminate.tr_info.participationTypeId
-            );
-            console.log(
-              "teamRaiserService > Participant Type:",
-              $rootScope.luminate.tr_info.typeName
-            );
           },
           function(trResponseErorr) {
             console.log(

@@ -209,10 +209,6 @@ angular
   .controller("incentivesCtrl", function(
     $scope,
     $rootScope,
-    // @ts-ignore
-    $stateParams,
-    // @ts-ignore
-    $http,
     incentivesService
   ) {
     /**
