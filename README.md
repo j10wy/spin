@@ -117,8 +117,22 @@ Examples:
 
 ## Deploy to the App Stores
 
+### The Basics
+
 1. Read through each up the sections above to update the app.
 
 2. Run `ionic cordova prepare ios` and `ionic cordova android` to prepare the app for native builds.
 
 3. To prepare for Android, navigate to `platforms > android` and open the folder in Android Studio. To prepare for iOS, navigate to `platforms > ios` and open the file ending in `.xcodeproj` to open the project in Xcode.
+
+### Android Publishing
+
+To generate a release build for Android, we can use the following cordova cli command:
+
+```bash
+$ ionic cordova build --release android
+```
+
+### Sign the Android App
+
+[Sign your app with your upload key](https://developer.android.com/studio/publish/app-signing)
