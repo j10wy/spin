@@ -123,7 +123,9 @@ Examples:
 
 2. Run `ionic cordova prepare ios` and `ionic cordova android` to prepare the app for native builds.
 
-3. To prepare for Android, navigate to `platforms > android` and open the folder in Android Studio. To prepare for iOS, navigate to `platforms > ios` and open the file ending in `.xcodeproj` to open the project in Xcode.
+3. To prepare for Android, navigate to `platforms > android` and open the folder in Android Studio.
+
+4. To prepare for iOS, navigate to `platforms > ios` and open the file ending in `.xcodeproj` to open the project in Xcode.
 
 ### Android Publishing
 
