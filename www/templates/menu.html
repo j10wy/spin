@@ -3,7 +3,10 @@
     <ion-nav-bar class="bar-energized">
       <ion-nav-back-button></ion-nav-back-button>
       <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+        <button
+          class="button button-icon button-clear ion-navicon"
+          menu-toggle="left"
+        ></button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="side-menu"></ion-nav-view>
@@ -14,31 +17,106 @@
     </ion-header-bar>
     <ion-content padding="false" class="side-menu-left has-header ">
       <ion-list id="menu-list4">
-        <ion-item class="item-icon-left dark" id="menu-list-item18" ui-sref="menu.home()" menu-close="">
-          <i class="icon ion-ios-home"></i>Home</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-divider" id="menu-list-item-divider1"> Orientation Day</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-icon-left dark" id="menu-list-item20" ui-sref="menu.orientationDay()"
-          menu-close="">
-          <i class="icon ion-information-circled"></i>Orientation Meeting</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-icon-left dark" id="menu-list-item19" ui-sref="menu.checkIn()" menu-close="">
-          <i class="icon ion-android-checkbox-outline"></i>Check-in</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-icon-left dark" id="menu-list-item26" ui-sref="menu.incentives()" menu-close="">
-          <i class="icon ion-tshirt"></i>Incentives</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-icon-left" id="menu-list-item33" href-inappbrowser="http://www.aidslifecycle.org/register2019">
-          <i class="icon ion-android-laptop"></i>Register for 2019</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-divider" id="menu-list-item-divider2"> Event</ion-item>
-        <ion-item ng-if="$root.luminate.tr_info.typeName === 'Cyclist'" class="item-icon-left dark" id="menu-list-item21" ui-sref="menu.bikeLocation()"
-          menu-close="">
-          <i class="icon ion-ios-location"></i>Bike Location</ion-item>
-        <ion-item ng-if="$root.luminate.tr_info.typeName === 'Roadie'" class="item-icon-left dark" id="menu-list-item25" ui-sref="menu.roadies()"
-          menu-close="">
-          <i class="icon ion-ios-gear"></i>Roadies</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-icon-left dark" id="menu-list-item30" href-inappbrowser="https://www.aidslifecycle.org/daily-spin/">
-          <i class="icon ion-ios-paper-outline"></i>Daily Spin</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" class="item-icon-left dark" id="menu-list-item31" href-inappbrowser="https://www.aidslifecycle.org/route-sheets">
-          <i class="icon ion-map"></i>Route</ion-item>
-        <ion-item ng-if="$root.luminate.loggedIn" ng-click="logout()" class="item-icon-left dark" id="menu-list-item32">
-          <i class="icon ion-android-exit"></i>Log Out</ion-item>
+        <ion-item
+          class="item-icon-left dark"
+          id="menu-list-item18"
+          ui-sref="menu.home()"
+          menu-close=""
+        >
+          <i class="icon ion-ios-home"></i>Home</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-divider"
+          id="menu-list-item-divider1"
+        >
+          Orientation Day</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-icon-left dark"
+          id="menu-list-item20"
+          ui-sref="menu.orientationDay()"
+          menu-close=""
+        >
+          <i class="icon ion-information-circled"></i>Orientation
+          Meeting</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-icon-left dark"
+          id="menu-list-item19"
+          ui-sref="menu.checkIn()"
+          menu-close=""
+        >
+          <i class="icon ion-android-checkbox-outline"></i>Check-in</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-icon-left dark"
+          id="menu-list-item26"
+          ui-sref="menu.incentives()"
+          menu-close=""
+        >
+          <i class="icon ion-tshirt"></i>Incentives</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-icon-left"
+          id="menu-list-item33"
+          href-inappbrowser="http://www.aidslifecycle.org/register2020"
+        >
+          <i class="icon ion-android-laptop"></i>Register for 2020</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-divider"
+          id="menu-list-item-divider2"
+        >
+          Event</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.tr_info.typeName === 'Cyclist'"
+          class="item-icon-left dark"
+          id="menu-list-item21"
+          ui-sref="menu.bikeLocation()"
+          menu-close=""
+        >
+          <i class="icon ion-ios-location"></i>Bike Location</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.tr_info.typeName === 'Roadie'"
+          class="item-icon-left dark"
+          id="menu-list-item25"
+          ui-sref="menu.roadies()"
+          menu-close=""
+        >
+          <i class="icon ion-ios-gear"></i>Roadies</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-icon-left dark"
+          id="menu-list-item30"
+          href-inappbrowser="https://www.aidslifecycle.org/daily-spin/"
+        >
+          <i class="icon ion-ios-paper-outline"></i>Daily Spin</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          class="item-icon-left dark"
+          id="menu-list-item31"
+          href-inappbrowser="https://www.aidslifecycle.org/route-sheets"
+        >
+          <i class="icon ion-map"></i>Route</ion-item
+        >
+        <ion-item
+          ng-if="$root.luminate.loggedIn"
+          ng-click="logout()"
+          class="item-icon-left dark"
+          id="menu-list-item32"
+        >
+          <i class="icon ion-android-exit"></i>Log Out</ion-item
+        >
       </ion-list>
     </ion-content>
   </ion-side-menu>
