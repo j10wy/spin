@@ -117,8 +117,6 @@ Examples:
 
 ## Deploy to the App Stores
 
-### The Basics
-
 1. Read through each up the sections above to update the app.
 
 2. Run `ionic cordova prepare ios` and `ionic cordova android` to prepare the app for native builds.
@@ -126,6 +124,14 @@ Examples:
 3. To prepare for Android, navigate to `platforms > android` and open the folder in Android Studio.
 
 4. To prepare for iOS, navigate to `platforms > ios` and open the file ending in `.xcodeproj` to open the project in Xcode.
+
+5. Update Apple development and distribution certificates
+
+6. Generate [Apple screenshots](https://help.apple.com/app-store-connect/#/devd274dd925).
+
+### Apple development and distribution certificates
+
+The certificates expire in May. Renew them in March or April.
 
 ### Android Publishing
 
