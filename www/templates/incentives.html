@@ -1,15 +1,23 @@
 <ion-view title="Incentives" hide-back-button="true" id="page9">
   <ion-content padding="true" class="has-header alc-bg alc-incentives">
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="incentiveRefresh()"></ion-refresher>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="incentiveRefresh()"
+    ></ion-refresher>
     <div class="list card">
-      <ion-item class="item-icon-left checkin checkin-fundraising" id="checkIn-list-item48">
-        <i class="icon ion-cash"></i>Fundraising Information</ion-item>
+      <ion-item
+        class="item-icon-left checkin checkin-fundraising"
+        id="checkIn-list-item48"
+      >
+        <i class="icon ion-cash"></i>Fundraising Information</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item46">
-        <span class="alc-title">Amount Raised:</span> {{$root.luminate.tr_part_progress.raised/100 | currency}}</ion-item>
+        <span class="alc-title">Amount Raised:</span>
+        {{ $root.luminate.tr_part_progress.raised / 100 | currency }}</ion-item
+      >
     </div>
     <div class="spacer" style="height: 0px;"></div>
     <div class="card">
-
       <!--
       * INCENTIVE KEYS
       * I_15K = All types $15,000
@@ -27,23 +35,35 @@
 
       <!-- ******** ROADIE INCENTIVES ******** -->
       <!-- ROADIES ROCK SHIRT $100: Check for not started or null-->
-      <div ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_100 != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 100" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_100 != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 100"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Roadies Rock Shirt
       </div>
 
       <!-- ROADIES ROCK HAT $500: Check for not started or null-->
-      <div ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_R500 != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 500" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_R500 != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 500"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Roadies Rock Hat
       </div>
 
       <!-- ROADIE RLL HOODIE $1500: Check for not started or null-->
-      <div ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_R1500 != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 1500" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_R1500 != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 1500"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Ride Love Live Hoodie
       </div>
 
       <!-- ROADIES ROCK INFLATABLE $3000: Check for not started or null-->
-      <div ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_R3K != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 3000" class="item item-text-wrap item-icon-left">
-        <i class="icon ion-bag"></i> Roadies Rock Laybag
+      <div
+        ng-if="$root.luminate.tr_info.typeName === 'Roadie' && incentiveDisplay.I_R3K != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 3000"
+        class="item item-text-wrap item-icon-left"
+      >
+        <i class="icon ion-bag"></i> Roadies Rock Lantern
       </div>
 
       <!-- ******** END ROADIE INCENTIVES ******** -->
@@ -51,17 +71,26 @@
       <!-- ******** CYCLIST INCENTIVES ******** -->
 
       <!-- CYCLIST RLL JERSEY $1000: Check for not started -->
-      <div ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && incentiveDisplay.I_C1000 == 'Not Started'" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && incentiveDisplay.I_C1000 == 'Not Started'"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Ride Love Live Cycling Jersey
       </div>
 
       <!-- CYCLIST RLL HOODIE $1500: Check for not started -->
-      <div ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && incentiveDisplay.I_C1500 == 'Not Started'" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && incentiveDisplay.I_C1500 == 'Not Started'"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Ride Love Live Hoodie
       </div>
 
       <!-- CYCLIST RLL WINDVEST $3000: Check for not started -->
-      <div ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && incentiveDisplay.I_C3K == 'Not Started'" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && incentiveDisplay.I_C3K == 'Not Started'"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Ride Love Live Windvest
       </div>
 
@@ -69,26 +98,45 @@
 
       <!-- ******** ALL PARTICIPANT INCENTIVES ******** -->
 
+      <!-- 5K : Check for not started or null-->
+      <div
+        ng-if="incentiveDisplay.I_5K != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 5000"
+        class="item item-text-wrap item-icon-left"
+      >
+        <i class="icon ion-bag"></i> $5,000 gift
+      </div>
+
       <!-- 10K : Check for not started or null-->
-      <div ng-if="incentiveDisplay.I_10K != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 10000" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="incentiveDisplay.I_10K != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 10000"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> $10,000 gift
       </div>
 
       <!-- 15K : Check for not started or null-->
-      <div ng-if="incentiveDisplay.I_15K != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 15000" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="incentiveDisplay.I_15K != 'Completed' && ($root.luminate.tr_part_progress.raised/100) >= 15000"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> $15,000 gift
       </div>
 
       <!-- Top 50: Report MUST include ONLY THE EARNERS -->
-      <div ng-if="top50Display.earned == true" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="top50Display.earned == true"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Top 50 gift
       </div>
 
       <!-- Top 545: Report MUST include ONLY THE EARNERS -->
-      <div ng-if="top545Display.earned == true" class="item item-text-wrap item-icon-left">
+      <div
+        ng-if="top545Display.earned == true"
+        class="item item-text-wrap item-icon-left"
+      >
         <i class="icon ion-bag"></i> Top 545 gift
       </div>
-
     </div>
   </ion-content>
 </ion-view>

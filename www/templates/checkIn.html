@@ -1,56 +1,137 @@
-<ion-view title="Check-In" hide-back-button="true" cache-view="false" id="page6">
+<ion-view
+  title="Check-In"
+  hide-back-button="true"
+  cache-view="false"
+  id="page6"
+>
   <ion-content padding="true" class="has-header alc-checkin alc-bg">
-    <ion-refresher pulling-text="Pull to refresh..." on-refresh="$root.refresher()"></ion-refresher>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="$root.refresher()"
+    ></ion-refresher>
     <div class="list card" id="checkIn-card22">
-
       <ion-item class=" item-icon-right" id="checkIn-list-item38">
-
-        <h2 style="font-size:24px; margin-bottom:6px;">{{$root.luminate.cons_info.name.first + " " + $root.luminate.cons_info.name.last}}</h2>
-        <p style="white-space:normal; font-size:32px; color:red; overflow:visible">{{$root.luminate.tr_info.raceNumber}}</p>
-        <i ng-if="$root.luminate.tr_info.typeName === 'Cyclist'" style="font-size:45px; right:18px;" class="icon ion-android-bicycle"></i>
-        <i ng-if="$root.luminate.tr_info.typeName === 'Roadie'" style="font-size:45px; right:18px;" class="icon ion-ios-gear"></i>
-        <i ng-if="$root.luminate.tr_info.typeName === 'Staff'" style="font-size:45px; right:18px;" class="icon ion-android-happy"></i>
+        <h2 style="font-size:24px; margin-bottom:6px;">
+          {{
+            $root.luminate.cons_info.name.first +
+              " " +
+              $root.luminate.cons_info.name.last
+          }}
+        </h2>
+        <p
+          style="white-space:normal; font-size:32px; color:red; overflow:visible"
+        >
+          {{ $root.luminate.tr_info.raceNumber }}
+        </p>
+        <i
+          ng-if="$root.luminate.tr_info.typeName === 'Cyclist'"
+          style="font-size:45px; right:18px;"
+          class="icon ion-android-bicycle"
+        ></i>
+        <i
+          ng-if="$root.luminate.tr_info.typeName === 'Roadie'"
+          style="font-size:45px; right:18px;"
+          class="icon ion-ios-gear"
+        ></i>
+        <i
+          ng-if="$root.luminate.tr_info.typeName === 'Staff'"
+          style="font-size:45px; right:18px;"
+          class="icon ion-android-happy"
+        ></i>
       </ion-item>
-      <ion-item class="item-icon-left positive checkin checkin-teamraiser" id="checkIn-list-item39">
-        <i class="icon ion-ios-information"></i>Registration Information</ion-item>
+      <ion-item
+        class="item-icon-left positive checkin checkin-teamraiser"
+        id="checkIn-list-item39"
+      >
+        <i class="icon ion-ios-information"></i>Registration
+        Information</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item49">
-        <span class="alc-title">Email:</span> {{$root.luminate.cons_info.email.primary_address}}</ion-item>
+        <span class="alc-title">Email:</span>
+        {{ $root.luminate.cons_info.email.primary_address }}</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item49">
-        <span class="alc-title">Type:</span> {{$root.luminate.tr_info.typeName}}</ion-item>
+        <span class="alc-title">Type:</span>
+        {{ $root.luminate.tr_info.typeName }}</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item94">
-        <span class="alc-title">Number:</span> {{$root.luminate.tr_info.raceNumber}}</ion-item>
+        <span class="alc-title">Number:</span>
+        {{ $root.luminate.tr_info.raceNumber }}</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item50">
-        <span class="alc-title">Meal Preference:</span> {{$root.luminate.mealPreference}}</ion-item>
+        <span class="alc-title">Meal Preference:</span>
+        {{ $root.luminate.mealPreference }}</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item53">
         <span class="alc-title">Home Address:</span>
-        <br /> {{$root.luminate.cons_info.primary_address.street1}}
         <br />
-        <span ng-if="$root.luminate.cons_info.primary_address.street2">{{$root.luminate.cons_info.primary_address.street2}}
+        {{ $root.luminate.cons_info.primary_address.street1 }}
+        <br />
+        <span ng-if="$root.luminate.cons_info.primary_address.street2"
+          >{{ $root.luminate.cons_info.primary_address.street2 }}
           <br />
-        </span> {{$root.luminate.cons_info.primary_address.city}}, {{$root.luminate.cons_info.primary_address.state}}
-        <br /> {{$root.luminate.cons_info.primary_address.zip}}</ion-item>
-      <ion-item class="item-icon-left checkin checkin-fundraising" id="checkIn-list-item48">
-        <i class="icon ion-cash"></i>Fundraising Information</ion-item>
+        </span>
+        {{ $root.luminate.cons_info.primary_address.city }},
+        {{ $root.luminate.cons_info.primary_address.state }} <br />
+        {{ $root.luminate.cons_info.primary_address.zip }}</ion-item
+      >
+      <ion-item
+        class="item-icon-left checkin checkin-fundraising"
+        id="checkIn-list-item48"
+      >
+        <i class="icon ion-cash"></i>Fundraising Information</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item46">
-        <span class="alc-title">Amount Raised:</span> {{$root.luminate.tr_part_progress.raised/100 | currency}}</ion-item>
+        <span class="alc-title">Amount Raised:</span>
+        {{ $root.luminate.tr_part_progress.raised / 100 | currency }}</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item47">
-        <span class="alc-title">Goal:</span> {{$root.luminate.tr_part_progress.goal/100 | currency}}
-        <p class="alc-error" ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && $root.luminate.tr_part_progress.raised < 3000">You have not met the fundraising minimum to ride. Please Visit the Donor Services booth on Orientation Day.</p>
+        <span class="alc-title">Goal:</span>
+        {{ $root.luminate.tr_part_progress.goal / 100 | currency }}
+        <p
+          class="alc-error"
+          ng-if="$root.luminate.tr_info.typeName === 'Cyclist' && $root.luminate.tr_part_progress.raised < 3000"
+        >
+          You have not met the fundraising minimum to ride. Please Visit the
+          Donor Services booth on Orientation Day.
+        </p>
       </ion-item>
-      <ion-item class="item-icon-left assertive checkin checkin-medical" id="checkIn-list-item54">
-        <i class="icon ion-ios-medical"></i>Medical Information</ion-item>
+      <ion-item
+        class="item-icon-left assertive checkin checkin-medical"
+        id="checkIn-list-item54"
+      >
+        <i class="icon ion-ios-medical"></i>Medical Information</ion-item
+      >
       <ion-item id="checkIn-list-item55">
-        <span ng-if="$root.luminate.groups.med_form">Medical information complete</span>
-        <p class="alc-error" ng-if="!$root.luminate.groups.med_form">Visit the Medical booth before checking in on Orientation Day</p>
+        <span ng-if="$root.luminate.groups.med_form"
+          >Medical information received</span
+        >
+        <p class="alc-error" ng-if="!$root.luminate.groups.med_form">
+          Visit the Medical booth before checking in on Orientation Day
+        </p>
       </ion-item>
-      <ion-item class="item-icon-left positive checkin checkin-teamraiser" id="checkIn-list-item56">
-        <i class="icon ion-ios-home"></i>Tent Information</ion-item>
+      <ion-item
+        class="item-icon-left positive checkin checkin-teamraiser"
+        id="checkIn-list-item56"
+      >
+        <i class="icon ion-ios-home"></i>Tent Information</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item57">
-        <span class="alc-title">Tent Address:</span> {{$root.luminate.tentAddress}}</ion-item>
+        <span class="alc-title">Tent Address:</span>
+        {{ $root.luminate.tentAddress }}</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item58">
-        <span class="alc-title">Tent Mate:</span> {{$root.luminate.tentMate.name.first + " " + $root.luminate.tentMate.name.last}}</ion-item>
+        <span class="alc-title">Tent Mate:</span>
+        {{
+          $root.luminate.tentMate.name.first +
+            " " +
+            $root.luminate.tentMate.name.last
+        }}</ion-item
+      >
       <ion-item class="dark" id="checkIn-list-item59">
-        <span class="alc-title">Group Keyword:</span> {{$root.luminate.tentKeyword}}</ion-item>
+        <span class="alc-title">Group Keyword:</span>
+        {{ $root.luminate.tentKeyword }}</ion-item
+      >
     </div>
   </ion-content>
 </ion-view>

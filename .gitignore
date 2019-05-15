@@ -10,3 +10,4 @@ plugins/
 *codekit*
 www/lib/firebase/firebase.js
 alc.keystore
+.vscode

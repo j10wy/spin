@@ -115,6 +115,7 @@ angular
     $log,
     // @ts-ignore
     loginService,
+    appConfigService,
     constituentService,
     teamRaiserService,
     tentMateService,
@@ -127,6 +128,9 @@ angular
     $scope.loginData.username = window.localStorage.username || "";
     $scope.loginData.password = window.localStorage.password || "";
     $scope.savePassword = true;
+
+    // Get app config data from Firebase.
+    appConfigService.getConfig();
 
     $scope.login = function() {
       //LOGIN REQUEST
@@ -205,10 +209,6 @@ angular
   .controller("incentivesCtrl", function(
     $scope,
     $rootScope,
-    // @ts-ignore
-    $stateParams,
-    // @ts-ignore
-    $http,
     incentivesService
   ) {
     /**
