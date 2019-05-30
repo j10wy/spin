@@ -369,7 +369,7 @@ angular
 
               switch (convioGroupId) {
                 case $rootScope.luminate.group_id.pom_one:
-                  $rootScope.luminate.groups.pom = "9:00 AM";
+                  $rootScope.luminate.groups.pom = "9:30 AM";
                   break;
                 case $rootScope.luminate.group_id.pom_two:
                   $rootScope.luminate.groups.pom = "11:00 AM";

@@ -1,5 +1,14 @@
-<ion-view title="Home" hide-back-button="true" id="page100" style="background-color: #414042">
-  <ion-content padding="false" class=" manual-remove-top-padding has-header alc-rll" scroll="false">
+<ion-view
+  title="Home"
+  hide-back-button="true"
+  id="page100"
+  style="background-color: #414042"
+>
+  <ion-content
+    padding="false"
+    class=" manual-remove-top-padding has-header alc-rll"
+    scroll="false"
+  >
     <div class="spacer" style="width: 320px; height: 20px;"></div>
     <div class="row">
       <div class="col col-center" id="clockdiv">
@@ -24,14 +33,32 @@
     <div class="spacer" style="width: 320px; height: 50px;"></div>
     <div class="row">
       <div class="col col-center">
-        <img src="img/rll-white.svg">
+        <!-- <img src="img/rll-white.svg"> -->
       </div>
     </div>
-    <div ng-if="!$root.luminate.loggedIn" id="home-container3" class="bottom-button login">
-      <a ui-sref="menu.login()" id="home-button11" class="button button-assertive button-block button-outline icon-right ion-log-in">Login</a>
+    <div
+      ng-if="!$root.luminate.loggedIn"
+      id="home-container3"
+      class="bottom-button login"
+    >
+      <a
+        ui-sref="menu.login()"
+        id="home-button11"
+        class="button button-assertive button-block button-outline icon-right ion-log-in"
+        >Login</a
+      >
     </div>
-    <div ng-if="$root.luminate.loggedIn" id="home-container3" class="bottom-button login">
-      <a menu-toggle="left" id="home-button11" class="button button-energized button-block button-outline icon-right ion-log-in">Menu</a>
+    <div
+      ng-if="$root.luminate.loggedIn"
+      id="home-container3"
+      class="bottom-button login"
+    >
+      <a
+        menu-toggle="left"
+        id="home-button11"
+        class="button button-energized button-block button-outline icon-right ion-log-in"
+        >Menu</a
+      >
     </div>
   </ion-content>
 </ion-view>
