@@ -1,4 +1,6 @@
-// @ts-ignore
+// @ts-nocheck
+
+// This app is dedicated to the memory of Gilbert Valenzuela 💗
 angular
   .module("app.controllers", [])
 
@@ -7,7 +9,7 @@ angular
     "$stateParams",
     // @ts-ignore
     function($scope, $stateParams) {
-      var deadline = new Date("June 3, 2019 7:00:00");
+      var deadline = new Date("June 2, 2019 7:00:00");
 
       function getTimeRemaining(endtime) {
         var now = new Date();
@@ -245,6 +247,7 @@ angular
     $scope.top545.on("value", function(snapshot) {
       $scope.$apply(function() {
         $scope.top545Display = snapshot.val();
+        console.log("$scope.top545Display", $scope.top545Display);
       });
     });
 
